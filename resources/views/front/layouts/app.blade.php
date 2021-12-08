@@ -55,9 +55,9 @@
         <div class="container d-flex justify-content-between">
 
             <div class="logo">
-                <h1 class="text-light"><a href="{{ url('/') }}">Digital Decoder</a></h1>
+                {{-- <h1 class="text-light"><a href="{{ url('/') }}">Digital Decoder</a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <a href="{{ url('/') }}"><img src="{{ asset('assets/front/img/logo.jfif') }}" alt="Digitla Decoder" class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -112,7 +112,8 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Digital Decoder</h3>
+                        {{-- <h3>Digital Decoder</h3> --}}
+                        <a href="{{ url('/') }}"><img src="{{ asset('assets/front/img/logo.jfif') }}" alt="Digitla Decoder" style="height: 10%;" class="img-fluid"></a>
                         <p>
                             E-9/6<br>
                             East Tower<br>
