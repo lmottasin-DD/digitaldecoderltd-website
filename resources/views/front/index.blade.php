@@ -143,11 +143,11 @@
             <div class="row portfolio-container" data-aos="fade-up">
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/front/img/portfolio/1615392340.png" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/1615392340.png') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Mobile App</h4>
                         <p>App</p>
-                        <a href="assets/front/img/portfolio/1615392340.png" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/front/img/portfolio/1615392340.png') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="App 1"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
@@ -156,11 +156,11 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/front/img/portfolio/dokansheba.png" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/dokansheba.png') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Dokan Sheba</h4>
                         <p>Web</p>
-                        <a href="assets/front/img/portfolio/dokansheba.png" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/front/img/portfolio/dokansheba.png') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="Web 3"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
@@ -169,11 +169,11 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/front/img/portfolio/1615392340.webp" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/1615392340.webp') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>IOS App</h4>
                         <p>App</p>
-                        <a href="assets/img/portfolio/1615392340.webp" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/img/portfolio/1615392340.webp') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="App 2"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
@@ -195,11 +195,11 @@
                 </div> --}}
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/front/img/portfolio/jhorna.png" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/jhorna.png') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Hotel Management System</h4>
                         <p>Web</p>
-                        <a href="assets/front/img/portfolio/jhorna.png" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/front/img/portfolio/jhorna.png') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="Web 2"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
@@ -208,11 +208,11 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/front/img/portfolio/helpdesk.png" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/helpdesk.png') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>SF Management System</h4>
                         <p>App</p>
-                        <a href="assets/front/img/portfolio/helpdesk.png" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/front/img/portfolio/helpdesk.png') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="App 3"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
@@ -247,11 +247,11 @@
                 </div> --}}
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/front/img/portfolio/school.png" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/front/img/portfolio/school.png') }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>School Management System</h4>
                         <p>Web</p>
-                        <a href="assets/img/portfolio/school.png" data-gallery="portfolioGallery"
+                        <a href="{{ asset('assets/img/portfolio/school.png') }}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="Web 3"><i
                                 class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
