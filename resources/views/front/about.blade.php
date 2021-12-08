@@ -26,33 +26,32 @@
                         data-aos="fade-right"></div>
                     <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                         <div class="content d-flex flex-column justify-content-center">
-                            <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
+                            <h3 data-aos="fade-up">Unleashing the Possibilities</h3>
                             <p data-aos="fade-up">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                                How? We help individuals/inventors/entrepreneurs/designers/developers/fresh-thinkers to achieve their dream and goal by showing them how to increase their overall productivity, identity and belief in their ability towards success. 
                             </p>
                             <div class="row">
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
                                     <i class="bx bx-receipt"></i>
-                                    <h4>Corporis voluptates sit</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip
+                                    <h4>Who We Are?</h4>
+                                    <p>Digital Decoder Limited is an IT enabled Development service providing company.
                                     </p>
                                 </div>
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                     <i class="bx bx-cube-alt"></i>
-                                    <h4>Ullamco laboris nisi</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                    <h4>We Believe</h4>
+                                    <p>Unleashing the Possibilities.
                                     </p>
                                 </div>
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                     <i class="bx bx-images"></i>
-                                    <h4>Labore consequatur</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                    <h4>Our Vission</h4>
+                                    <p>To be the leading company in Development that empowers individuals & companies to transform their ideas to reality.</p>
                                 </div>
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                     <i class="bx bx-shield"></i>
-                                    <h4>Beatae veritatis</h4>
-                                    <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                                    <h4>Our Mission</h4>
+                                    <p>Our mission is 100% client satisfaction and we focused on versatile project management.</p>
                                 </div>
                             </div>
                         </div><!-- End .content-->
@@ -63,14 +62,12 @@
         </section><!-- End About Us Section -->
 
         <!-- ======= Our Team Section ======= -->
-        <section id="team" class="team section-bg">
+        {{-- <section id="team" class="team section-bg">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
                     <h2>Our <strong>Team</strong></h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                        fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>We have a long-standing reputation for industry-leading support. Our team is the backbone of our company and transparency is our Promise.</p>
                 </div>
 
                 <div class="row">
@@ -150,10 +147,10 @@
                 </div>
 
             </div>
-        </section><!-- End Our Team Section -->
+        </section><!-- End Our Team Section --> --}}
 
         <!-- ======= Our Skills Section ======= -->
-        <section id="skills" class="skills">
+        {{-- <section id="skills" class="skills">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -224,10 +221,10 @@
                 </div>
 
             </div>
-        </section><!-- End Our Skills Section -->
+        </section><!-- End Our Skills Section --> --}}
 
         <!-- ======= Our Clients Section ======= -->
-        <section id="clients" class="clients">
+        {{-- <section id="clients" class="clients">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -289,7 +286,8 @@
 
                 </div>
             </div>
-        </section><!-- End Our Clients Section -->
+        </section> --}}
+        <!-- End Our Clients Section -->
 
     </main><!-- End #main -->
 @endsection

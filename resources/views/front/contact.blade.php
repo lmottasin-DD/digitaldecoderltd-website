@@ -35,19 +35,19 @@
                 <div class="col-lg-4 info">
                   <i class="bi bi-geo-alt"></i>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street<br>New York, NY 535022</p>
+                  <p>E-9/6, East Tower <br> Chaina Town, Nayapaltan</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-envelope"></i>
                   <h4>Email:</h4>
-                  <p>info@example.com<br>contact@example.com</p>
+                  <p>info@digitaldecoderltd.com<br>contact@digitaldecoderltd.com</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-phone"></i>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+                  <p>+9613661122</p>
                 </div>
               </div>
             </div>

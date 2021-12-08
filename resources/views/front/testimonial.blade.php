@@ -27,11 +27,11 @@
           <div class="col-lg-6" data-aos="fade-up">
             <div class="testimonial-item">
               <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
+              <h3>Md. A. G Mahmud</h3>
+              <h4>Chairman</h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                Business promises must be kept, or it will fall at any time!
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
@@ -40,17 +40,17 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="testimonial-item mt-4 mt-lg-0">
               <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
+              <h3>Md. Monowar Ul Islam</h3>
+              <h4>Managing Director</h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                Great help with SocialEngine, knows his stuff highly recommended. Good communication.
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          {{-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="testimonial-item mt-4">
               <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
@@ -61,9 +61,9 @@
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          {{-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="testimonial-item mt-4">
               <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
               <h3>Matt Brandon</h3>
@@ -74,9 +74,9 @@
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          {{-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="testimonial-item mt-4">
               <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
               <h3>John Larson</h3>
@@ -87,9 +87,9 @@
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+          {{-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
             <div class="testimonial-item mt-4">
               <img src="assets/img/testimonials/testimonials-6.jpg" class="testimonial-img" alt="">
               <h3>Emily Harison</h3>
@@ -100,7 +100,7 @@
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </div> --}}
 
         </div>
 

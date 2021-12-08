@@ -39,7 +39,7 @@
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope d-flex align-items-center"><a
                         href="mailto:contact@example.com">info@digitaldecoderltd.com</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+880 1988 011898</span></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+9613661122</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -73,8 +73,8 @@
                     {{-- <li><a href="pricing.html">Pricing</a></li> --}}
                     <li><a class="{{ Request::routeIs('portfolio') ? 'active' : '' }}"
                             href="{{ route('portfolio') }}">Portfolio</a></li>
-                    <li><a class="{{ Request::routeIs('blog') ? 'active' : '' }}"
-                            href="{{ route('blog') }}">Blog</a></li>
+                    {{-- <li><a class="{{ Request::routeIs('blog') ? 'active' : '' }}"
+                            href="{{ route('blog') }}">Blog</a></li> --}}
                     {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
@@ -117,7 +117,7 @@
                             E-9/6<br>
                             East Tower<br>
                             Chaina Town<br><br>
-                            <strong>Phone:</strong> +880 1988 011898<br>
+                            <strong>Phone:</strong> +9613661122<br>
                             <strong>Email:</strong> info@digitaldecoderltd.com<br>
                         </p>
                     </div>
@@ -145,8 +145,8 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Newsletter</h4>
+                        <p>Subscribe for new updates</p>
                         <form action="" method="post">
                             <input type="email" name="email"><input type="submit" value="Subscribe">
                         </form>
