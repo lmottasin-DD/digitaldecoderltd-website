@@ -24,3 +24,8 @@ Route::get('portfolio', 'FrontController@portfolio')->name('portfolio');
 Route::get('contact', 'FrontController@contact')->name('contact');
 Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
+
+//===================  Backend Part for Digital Decoder Ltd.    =========================
+Route::get('/', function () {
+    return view('admin.index');
+});
