@@ -26,6 +26,9 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
 
 //===================  Backend Part for Digital Decoder Ltd.    =========================
-Route::get('/', function () {
-    return view('admin.index');
+Route::get('/dashboard', function () {
+    return view('welcome');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
