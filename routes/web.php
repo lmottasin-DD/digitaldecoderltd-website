@@ -30,15 +30,15 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 //===================  Backend Part for Digital Decoder Ltd.    =========================
 
                 Route::get('/', function () {
-                    return view('welcome');
+                    return view('auth.login');
                 });
 
     
-    Auth::routes();
+    Auth::routes(['register' => false]);
 
-    Route::get('/register', function () {
-        return redirect('/');
-    });
+    // Route::get('/register', function () {
+    //     return redirect('/');
+    // });
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
