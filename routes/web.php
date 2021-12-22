@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/front', function () {
     return view('front.index');
 });
 
@@ -27,22 +28,28 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
 
 //===================  Backend Part for Digital Decoder Ltd.    =========================
-// Route::get('/dashboard', function () {
-//     return view('backend.pages.dashboard');
-// });
 
-Route::group(['middleware' => 'auth'],function(){
+                Route::get('/', function () {
+                    return view('welcome');
+                });
 
-    Route::get('admin/dashboard',[LoginController::class,'index'])->name('admin');
-
-    Route::get('admin',[LoginController::class,'login'])->name('login.show');
-    
-    Route::post('admin',[LoginController::class,'confirm'])->name('login.confirm');
     
     Auth::routes();
+
+    Route::get('/register', function () {
+        return redirect('/');
+    });
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-});
+    Route::group(['middleware' => 'auth'],function(){
+
+        Route::get('dashboard',[DashboardController::class,'admin_dashboard']);
+
+    });
+
+    
+
+
 
 

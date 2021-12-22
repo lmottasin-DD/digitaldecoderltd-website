@@ -9,24 +9,25 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('backend.pages.dashboard');
-    }
+    // public function login(){
+    //     return view('backend.pages.login');
+    // }
 
-    public function login(){
-        return view('backend.pages.login');
-    }
+    // public function confirm(LoginRequest $request){
 
-    public function confirm(LoginRequest $request){
+    //     $data = $request->only(['email', 'password']);
 
-        $data = $request->only(['email', 'password']);
+    //     if (Auth::attempt($data)) {
+    // 		return redirect()->intended('admin/dashboard');
+    // 	}else
+    //     {
+    //         return redirect()->route('login.show');
 
-        if (Auth::attempt($data)) {
-    		return redirect()->intended('admin/dashboard');
-    	}else
-        {
-            return redirect()->route('login.show');
+    //     }
+    // }
 
-        }
-    }
+    // public function logout(){
+    //     Auth::logout();
+    //     return redirect()->route('login.show');
+    // }
 }
