@@ -41,13 +41,23 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index-2.html">
+						<a href="{{url('dashboard')}}">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
+                <!-- Sliders sidebar start -->
+					<li class="">
+						<a href="{{route('home.slider')}}">
+							<i class="menu-icon fa fa-sliders-h"></i>
+							<span class="menu-text"> Sliders </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+				<!-- Sliders sidebar start -->
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
@@ -250,7 +260,7 @@
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
+							<span class="menu-text"> Tabels </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>

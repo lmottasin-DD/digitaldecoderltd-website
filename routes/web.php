@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -15,7 +16,7 @@ use App\Http\Controllers\Admin\DashboardController;
 |
 */
 
-Route::get('/front', function () {
+Route::get('/', function () {
     return view('front.index');
 });
 
@@ -29,22 +30,27 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 
 //===================  Backend Part for Digital Decoder Ltd.    =========================
 
-                Route::get('/', function () {
-                    return view('auth.login');
-                });
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 
     
     Auth::routes(['register' => false]);
-
-    // Route::get('/register', function () {
-    //     return redirect('/');
-    // });
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::group(['middleware' => 'auth'],function(){
 
         Route::get('dashboard',[DashboardController::class,'admin_dashboard']);
+
+        //Slider Route Here.....
+
+        Route::get('home-slider',[SliderController::class,'index'])->name('home.slider');
+
+        Route::get('add-slider',[SliderController::class,'create'])->name('add.slider');
+
+        Route::get('store-slider',[SliderController::class,'store'])->name('slider.store');
+
 
     });
 
