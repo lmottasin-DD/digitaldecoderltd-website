@@ -38,40 +38,42 @@
                             <div class="col-md-12">
 										<div class="">
 											<div class="widget-header">
-												<h4 class="widget-title col-md-11">Add Slider </h4>
+												<h4 class="widget-title col-md-11">Edit Slider </h4>
                                                 <a href="{{route('home.slider')}}" class="btn btn-danger btn-sm pull-right"><i class="fas fa-undo"></i></a>
 											</div>
                                             <div class="card">
 											<div class="card-body">
 												
-                                                <form action="{{route('slider.update')}}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{url('update-slider/'.$slider->id)}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
+                                                    @method('PUT')
                                                     <div class="form-group">
                                                         <label for="">Heading</label>
-                                                        <input type="text" name="title" class="form-control">
+                                                        <input type="text" name="title" value="{{$slider->title}}" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Description</label>
-                                                        <textarea name="description" class="form-control"></textarea>
+                                                        <textarea name="description" class="form-control">{{$slider->description}}</textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Link</label>
-                                                        <input type="text" name="link" class="form-control">
+                                                        <input type="text" name="link" value="{{$slider->link}}" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Link Name</label>
-                                                        <input type="text" name="link_name" class="form-control">
+                                                        <input type="text" name="link_name" value="{{$slider->link_name}}" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Slider Image Upload</label>
-                                                        <input type="file" name="image" class="form-control">
+                                                        <input type="file" name="image" value="{{$slider->image}}" class="form-control">
+                                                        <img src="{{asset('uploads/slider/'.$slider->image)}}" width="60px" alt="">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Status</label>
-                                                        <input type="checkbox" name="status"> 0=visiable,1=hidden
+                                                        <input type="checkbox" name="status" {{$slider->status == '1' ? 'checked':''}}> 0=Deactive,1=Active
                                                     </div>
                                                     <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary" role="button">Submit</button>
+                                                    <button type="submit" class="btn btn-primary" role="button">Update</button>
                                                     </div>
                                                 </form>
 											

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\SliderController;
@@ -49,7 +50,13 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 
         Route::get('add-slider',[SliderController::class,'create'])->name('add.slider');
 
-        Route::get('store-slider',[SliderController::class,'store'])->name('slider.store');
+        Route::post('store-slider',[SliderController::class,'store'])->name('slider.store');
+
+        Route::get('edit-slider/{id}',[SliderController::class,'edit'])->name('slider.edit');
+
+        Route::put('update-slider/{id}',[SliderController::class,'update'])->name('slider.updated');
+
+
 
 
     });
