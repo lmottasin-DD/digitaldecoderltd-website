@@ -27,5 +27,5 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 
 
 Route::get('/admin',function (){
-   return view('backend.layouts.app');
+   return view('backend.dashboard');
 });
