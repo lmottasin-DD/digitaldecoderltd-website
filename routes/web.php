@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -16,10 +17,17 @@ use App\Http\Controllers\Admin\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//===================  Frontend Part for Digital Decoder Ltd.    =========================
 
-Route::get('/', function () {
-    return view('front.index');
-});
+// Route::get('/', function () {
+//     return view('front.index');
+// });
+// Route::get('/',[FrontController::class,'admin_dashboard']);
+
+Route::get('/',[FrontController::class,'index']);
+
+Route::get('/read-more/{slug}',[FrontController::class,'showRead'])->name('read.more');
+
 
 Route::get('about', 'FrontController@about')->name('about');
 Route::get('services', 'FrontController@service')->name('service');
@@ -31,7 +39,7 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 
 //===================  Backend Part for Digital Decoder Ltd.    =========================
 
-    Route::get('/', function () {
+    Route::get('/admin', function () {
         return view('auth.login');
     });
 
@@ -52,12 +60,13 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 
         Route::post('store-slider',[SliderController::class,'store'])->name('slider.store');
 
+        Route::get('view-slider/{id}',[SliderController::class,'view'])->name('slider.edit');
+
         Route::get('edit-slider/{id}',[SliderController::class,'edit'])->name('slider.edit');
 
         Route::put('update-slider/{id}',[SliderController::class,'update'])->name('slider.updated');
 
-
-
+        Route::get('destory-slider/{id}',[SliderController::class,'destory'])->name('slider.destory');
 
     });
 
