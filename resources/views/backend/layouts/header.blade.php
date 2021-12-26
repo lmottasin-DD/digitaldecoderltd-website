@@ -313,14 +313,14 @@
                                                         <img width="42" class="rounded-circle" src="{{ asset('assets/backend/assets/images/avatars/3.jpg') }}" alt="">
                                                     </div>
                                                     <div class="widget-content-left">
-                                                        <div class="widget-heading">Minnie Betts
+                                                        <div class="widget-heading">{{ Auth::user()->name }}
                                                         </div>
-                                                        <div class="widget-subheading opacity-8">A short profile description
+                                                        <div class="widget-subheading opacity-8">{{ Auth::user()->email }}
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-right mr-2">
-                                                        <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout
-                                                        </button>
+                                                        <a href="{{ route('manual.logout') }}" class="btn-pill btn-shadow btn-shine btn btn-focus">Logout
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

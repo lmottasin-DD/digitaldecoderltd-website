@@ -3,8 +3,7 @@
 @section('main-content')
 
 {{--main starts here--}}
-<div class="app-container app-theme-gray">
-    <div class="app-main">
+
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="header-mobile-wrapper">
@@ -30,7 +29,7 @@
 
 
 
-        {{--app header ends--}}
+        {{--app header starts--}}
         @include('backend.layouts.header')
         {{--app header ends--}}
 
