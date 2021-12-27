@@ -14,9 +14,8 @@
 
 
         @yield('content')
-    @include('backend.partials.footer')
-
+    
+    </div>
 </body>
 
-<!-- Mirrored from ace.jeka.by/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Dec 2021 09:41:02 GMT -->
-</html>
+@include('backend.partials.footer')

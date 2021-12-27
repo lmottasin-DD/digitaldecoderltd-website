@@ -60,6 +60,16 @@
             <b class="arrow"></b>
         </li>
         <!-- Sliders sidebar start -->
+        <!-- Quote sidebar start -->
+        <li class="">
+            <a href="{{ route('quote.index') }}">
+                <i class="menu-icon fas fa-quote-right"></i>
+                <span class="menu-text"> Quote </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        <!-- Quote sidebar start -->
 
         <li class="">
             <a href="#" class="dropdown-toggle">

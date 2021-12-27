@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Front;
+use App\Models\Admin\Quote;
 use App\Models\Admin\Slider;
 use Illuminate\Http\Request;
 
@@ -11,15 +12,19 @@ class FrontController extends Controller
     public function index()
     {
         $sliderItem = Slider::where('status',1)->latest()->get();
-        // return $sliderItem;
-        return view('front.index',compact('sliderItem'));
+
+        $quoteItem = Quote::latest()->first();
+        
+        return view('front.index',compact('sliderItem','quoteItem'));
     }
 
     public function showRead($slug){
        
         $readSlug = Slider::where("slug",$slug)->first();
 
-        return view('front.readmore',compact('readSlug'));
+        $recentpost= Slider::where('status',1)->limit(5)->latest()->get();
+        
+        return view('front.readmore',compact('readSlug','recentpost'));
     }
 
     public function about()

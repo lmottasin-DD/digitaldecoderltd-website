@@ -27,31 +27,6 @@
                         </div>
                     </div>
 
-                    {{-- <!-- Slide 2 -->
-                    <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-2.jpg);">
-                        <div class="carousel-container">
-                            <div class="carousel-content animate__animated animate__fadeInUp">
-                                <h2>Make The World Easier</h2>
-                                <p>If future generations are to remember us more with gratitude than sorrow, we must achieve
-                                    more than just the miracles of technology. We must also leave them a glimpse of the
-                                    world as it was created, not just as it looked when we got through with it.</p>
-                                <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-3.jpg);">
-                        <div class="carousel-container">
-                            <div class="carousel-content animate__animated animate__fadeInUp">
-                                <h2>Wear Mask, Stay Safe</h2>
-                                <p>In the light of the current situation, We want our customers, partners & employees to
-                                    know that Digital Decoder Limited is by your side at all times.</p>
-                                <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
-                            </div>
-                        </div>
-                    </div> --}}
-
                 @endforeach
 
             </div>
@@ -77,9 +52,8 @@
 
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-left">
-                        <h3>We've created more than <span>10 E-commerce</span> this year!</h3>
-                        <p> Digital Decoder Limited with its dedicated teams render high quality IT solutions with
-                            professional management services of excellence,quality assurance & on time turnkey automation.
+                        <h3>{{ $quoteItem->title }}</h3>
+                        <p> {{ Str::limit($quoteItem->description,200) }}
                         </p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
@@ -103,44 +77,7 @@
                                 just one unique system.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                            <h4 class="title"><a href="">Independent Platform</a></h4>
-                            <p class="description">With software that can run independently on any platform, real-time
-                                activity monitoring becomes easy.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-                            <h4 class="title"><a href="">Data Consolidation</a></h4>
-                            <p class="description"> Gather vast amounts of data in one central place. Stress-free,
-                                hassle-free, easy; the perfect solution to human cost management.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                            <div class="icon"><i class="bi bi-binoculars"></i></div>
-                            <h4 class="title"><a href="">Web Applicaiton</a></h4>
-                            <p class="description">Our custom tailored web applications and e-Commerce fits with client
-                                business needs and increase operational efficiency</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                            <div class="icon"><i class="bi bi-phone-fill"></i></div>
-                            <h4 class="title"><a href="">Moblie Applicaiotn</a></h4>
-                            <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                            <div class="icon"><i class="bi bi-apple"></i></div>
-                            <h4 class="title"><a href="">IOS Application</a></h4>
-                            <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>

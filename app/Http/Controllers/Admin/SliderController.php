@@ -37,7 +37,7 @@ class SliderController extends Controller
         }
         $slider->status = $request->input('status') == true ? '1' : '0';
         $slider->save();
-        return redirect()->back()->with('status', 'Slider Added Successfully!');
+        return redirect()->route('home.slider')->with('status', 'Slider Added Successfully!');
     }
 
     public function edit($id)
@@ -59,6 +59,7 @@ class SliderController extends Controller
         $slider->description = $request->input('description');
         $slider->link = $request->input('link');
         $slider->link_name = $request->input('link_name');
+        $slider->slug = $request->input('slug');
         if ($request->hasfile('image')) {
             $destination = 'uploads/slider' . $slider->image;
             if (File::exists($destination)) {

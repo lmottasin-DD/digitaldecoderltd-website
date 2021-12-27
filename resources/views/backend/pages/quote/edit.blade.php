@@ -9,7 +9,7 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Admin</a>
                     </li>
-                    <li class="active">Slider</li>
+                    <li class="active">Quote</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -39,45 +39,26 @@
                     <div class="col-md-12">
                         <div class="">
                             <div class="widget-header">
-                                <h4 class="widget-title col-md-11">Add Slider </h4>
-                                <a href="{{ route('home.slider') }}" class="btn btn-danger btn-sm pull-right"><i
+                                <h4 class="widget-title col-md-11">Edit Quote </h4>
+                                <a href="{{ route('quote.index') }}" class="btn btn-danger btn-sm pull-right"><i
                                         class="fas fa-undo"></i></a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
 
-                                    <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('quote.update',$quote->id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="form-group">
                                             <label for="">Heading</label>
-                                            <input type="text" name="title" class="form-control">
+                                            <input type="text" name="title" value="{{$quote->title}}" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Description</label>
-                                            <textarea name="description" class="form-control"></textarea>
+                                            <textarea name="description" class="form-control">{{$quote->description}}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Link</label>
-                                            <input type="text" name="link" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Link Name</label>
-                                            <input type="text" name="link_name" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Slug</label>
-                                            <input type="text" name="slug" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Slider Image Upload</label>
-                                            <input type="file" name="image" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Status</label>
-                                            <input type="checkbox" name="status"> 0=visiable,1=hidden
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary" role="button">Submit</button>
+                                            <button type="submit" class="btn btn-primary" role="button"> Update </button>
                                         </div>
                                     </form>
 

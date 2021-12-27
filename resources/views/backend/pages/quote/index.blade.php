@@ -10,7 +10,7 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Admin</a>
                     </li>
-                    <li class="active">Slider</li>
+                    <li class="active">Quote</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -25,16 +25,16 @@
             </div>
             <br>
             <div class="container mt-5">
-				@if(Session::has('status'))
-				<div>
-					<p class="alert alert-info">{{ Session::get('status') }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true" style="font-size:20px">×</span>
-						</button>
-					</p>
-				</div>
+                @if (Session::has('status'))
+                    <div>
+                        <p class="alert alert-info">{{ Session::get('status') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" style="font-size:20px">×</span>
+                            </button>
+                        </p>
+                    </div>
 
-			@endif
+                @endif
                 @if (Session::has('destory'))
                     <div>
                         <p class="alert alert-danger">{{ Session::get('destory') }}
@@ -49,8 +49,8 @@
                     <div class="col-md-12">
                         <div class="">
                             <div class="widget-header">
-                                <h4 class="widget-title col-md-11">All Slider </h4>
-                                <a href="{{ route('add.slider') }}" class="btn btn-primary btn-sm pull-right"><i
+                                <h4 class="widget-title col-md-11">All Qoute </h4>
+                                <a href="{{ route('quote.create') }}" class="btn btn-primary btn-sm pull-right"><i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -1032,50 +1032,42 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
-                                        <th>Image</th>
-                                        <th>Status</th>
+                                        <th width='550px'>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sliders as $item)
+                                    @foreach ($quotes as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ $item->description }}</td>
                                             <td>
-                                                <img src="{{ asset('uploads/slider/' . $item->image) }}" width="40px"
-                                                    height="40px" alt="">
-                                            </td>
-                                            <td>
-                                                @if ($item->status == '1')
-                                                    Active
-                                                @else
-                                                    Deactive
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{ url('view-slider/' . $item->id) }}">
+                                                <a href="{{ route('quote.show' , $item->id) }}">
                                                     <button class="tooltip-info" data-rel="tooltip" title="View">
                                                         <span class="blue">
                                                             <i class="ace-icon fa fa-search-plus bigger-120"></i>
                                                         </span>
                                                     </button>
                                                 </a>
-                                                <a href="{{ url('edit-slider/' . $item->id) }}">
+                                                <a href="{{ route('quote.edit', $item->id) }}">
                                                     <button class="tooltip-success" data-rel="tooltip" title="Edit">
                                                         <span class="green">
                                                             <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
                                                         </span>
                                                     </button>
                                                 </a>
-                                                <a href="{{ url('destory-slider/' . $item->id) }}">
-                                                    <button class="tooltip-error" data-rel="tooltip" title="Delete"
+												<br/>
+												<form action="{{ route('quote.destroy', $item->id) }}" method="POST">
+													@method('delete')
+													@csrf
+													<button class="tooltip-danger"  title="Delete"
                                                         onclick="return confirm('Are You Sure To Deleted !')">
                                                         <span class="red">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </span>
                                                     </button>
-                                                </a>
+												</form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -1085,6 +1077,44 @@
                         </div>
                     </div>
                 </div>
-                @include('backend.partials.paginate')
+                {{-- Pagination start --}}
+                @if (count($quotes) > 0)
+                    <span class="pull-right">
+                        <ul class="pagination">
+                            <li class=" @if ($quotes->appends(request()->query())->currentPage() == 1) disabled @endif">
+                                <a class="" href=" {{ $quotes->appends(request()->query())->url(1) }}">←
+                                    First</a>
+                            </li>
+
+                            <li class=" @if ($quotes->appends(request()->query())->currentPage() == 1) disabled @endif">
+                                <a class=""
+                                    href=" {{ $quotes->appends(request()->query())->previousPageUrl() }}"><i
+                                        class="fa fa-angle-double-left"></i></a>
+                            </li>
+                            @foreach(range(1, $quotes->appends(request()->query())->lastPage()) as $i)
+                            @if ($i >= $quotes->appends(request()->query())->currentPage() - 4 && $i <= $quotes->appends(request()->query())->currentPage() + 4)
+                                @if ($i == $quotes->appends(request()->query())->currentPage())
+                                    <li class="active"><span>{{ $i }}</span></li>
+                                @else
+                                    <li><a
+                                            href="{{ $quotes->appends(request()->query())->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endif
+                            @endif
+                @endforeach
+
+                <li class=" @if ($quotes->appends(request()->query())->lastPage() == $quotes->appends(request()->query())->currentPage()) disabled @endif">
+                    <a class="" href=" {{ $quotes->appends(request()->query())->nextPageUrl() }}"><i
+                            class="fa fa-angle-double-right"></i></a>
+                </li>
+                <li class=" @if ($quotes->appends(request()->query())->lastPage() == $quotes->appends(request()->query())->currentPage()) disabled @endif">
+                    <a class=""
+                        href=" {{ $quotes->appends(request()->query())->url($quotes->lastPage()) }}">Last
+                        →</a>
+                </li>
+                </ul>
+                </span>
+                @endif
+                {{-- Pagination End --}}
             </div>
         @endsection
