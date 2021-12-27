@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <!-- Slide 2 -->
+{{--             Slide 2--}}
             <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-2.jpg);">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
@@ -330,5 +330,5 @@
         </div>
     </section><!-- End Our Clients Section -->
 
-</main><!-- End #main --> 
+</main><!-- End #main -->
 @endsection

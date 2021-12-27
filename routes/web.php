@@ -12,10 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('front.index');
+Route::get('welcome',function (){
+    return view('welcome');
 });
+
+// front end routes
+Route::group([], function()
+{
+    Route::get('/','FrontController@index')->name('frontend.index');
+});
+
+
+
+/*Route::get('/', function () {
+    return view('front.index');
+});*/
 
 Route::get('about', 'FrontController@about')->name('about');
 Route::get('services', 'FrontController@service')->name('service');
@@ -26,29 +37,30 @@ Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
 
 
-Route::get('/admin',function (){
+/*Route::get('/admin',function (){
    return view('backend.dashboard');
-});
+});*/
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['namespace'=>'App\Http\Controllers\HomeController'], function(){
 
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+// logout route
 Route::get('manual-logout', function (){
         Auth::logout();
         return redirect('/login');
-        })->name('manual.logout');
+        })->name('manual.logout')->middleware('auth');
+
+
 
 /*slider routes*/
-Route::resource('slider','SliderController');
-
-Route::get('welcome',function (){
-   return view('welcome');
-});
-
-
-// slider delete route
-Route::delete('/delete/{id}','SliderController@delete')->name('slider.delete');
-Route::get('/status/change/{id}','SliderController@statusChange')->name('slider.status.change');
+Route::resource('slider','SliderController')->middleware('auth');
+Route::delete('/delete/{id}','SliderController@delete')->name('slider.delete')->middleware('auth');
+Route::get('/status/change/{id}','SliderController@statusChange')->name('slider.status.change')->middleware('auth');
 
 

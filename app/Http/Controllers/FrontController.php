@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Front;
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\returnArgument;
 
 class FrontController extends Controller
 {
@@ -30,5 +32,14 @@ class FrontController extends Controller
 
     public function blog(){
         return view('front.blog');
+    }
+    public function index()
+    {
+        $all_data = Slider::where('status','=',1)->get();
+//        return $all_data;
+
+        return view('front.index',[
+            'all_data'=>$all_data,
+        ]);
     }
 }

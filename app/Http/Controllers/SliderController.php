@@ -111,10 +111,13 @@ class SliderController extends Controller
         //validation
         if ( $request->has('new_slug'))
             {
-                $temp = Slider::where('slug','==',$request->new_slug)->get();
+                $temp = Slider::where('slug','=',$request->new_slug)->get();
+                
                 if( $temp ->count()==0)
                 {
                     $update_data->slug = Str::slug($request->new_slug);
+
+
                 }
                 else{
                     return redirect()->back()->with('slug_error','This slug is already taken.');
