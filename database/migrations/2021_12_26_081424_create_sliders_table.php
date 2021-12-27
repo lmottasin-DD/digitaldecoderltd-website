@@ -19,6 +19,7 @@ class CreateSlidersTable extends Migration
             $table->longText('description');
             $table->string('photo');
             $table->boolean('status')->default(0);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

@@ -139,44 +139,69 @@
 
 <!--                        tab content goes here-->
                         <div class="tab-content">
-                            <a href="#" id="modal_btn_show" class="btn btn-sm btn-info"> Add New Slider </a>
+<!--                            <a href="#" id="modal_btn_show" class="btn btn-sm btn-info"> Add New Slider </a>-->
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="main-card mb-3 card">
-                                            <div class="card-body"><h5 class="card-title">Simple table</h5>
+                                            <div class="card-body"><h5 class="card-title">Slider Information</h5>
+                                                @if( Session::has('success'))
+                                                    <p class="alert alert-success">{{ Session::get('success') }} <button class="close" data-dismiss="alert">&times;</button></p>
+                                                @endif
                                                 <table class="mb-0 table">
                                                     <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Title</th>
+                                                        <th>Photo</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+
+                                                    @foreach( $all_data as $data)
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                        <td>{{ $loop->index +1 }}</td>
+                                                        <td>{{ $data->title }}</td>
+                                                        <td>
+                                                         <img style="width: 30px;height: 30px;" src="{{ url('media/slider_image/'.$data->photo) }}" alt="">
+                                                        </td>
+                                                        <td>
+                                                            @if( $data->status == 0)
+                                                                <a href="{{ route('slider.status.change',$data->id) }}" class="badge badge-danger">unpublished</a>
+                                                            @else
+                                                                <a href="{{ route('slider.status.change',$data->id) }}" class="badge badge-success">published</a>
+                                                                @endif
+                                                        </td>
+                                                        <td>
+
+                                                                <a href="{{ route('slider.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                                                                <a class="btn btn-sm btn-info" href="{{ route('slider.edit',$data->id) }}"><i class="fas fa-edit "></i></a>
+
+                                                            <form style="display: inline" action="{{ route('slider.delete',$data->id) }}" method="POST" >
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                                            </form>
+
+
+                                                        </td>
+
+
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
+                                                    @endforeach
+
+                                                    {{--{{ $all_data->links() }}--}}
+
                                                     </tbody>
+
                                                 </table>
+                                                @include('backend.paginate',['style'=>'rounded','data'=>$all_data])
                                             </div>
                                         </div>
+
+
                                     </div>
 
                                 </div>

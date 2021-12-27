@@ -42,4 +42,13 @@ Route::get('manual-logout', function (){
 /*slider routes*/
 Route::resource('slider','SliderController');
 
+Route::get('welcome',function (){
+   return view('welcome');
+});
+
+
+// slider delete route
+Route::delete('/delete/{id}','SliderController@delete')->name('slider.delete');
+Route::get('/status/change/{id}','SliderController@statusChange')->name('slider.status.change');
+
 

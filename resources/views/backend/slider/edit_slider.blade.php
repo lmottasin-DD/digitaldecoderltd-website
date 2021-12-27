@@ -137,7 +137,7 @@
 
                     <div class="app-inner-layout__content">
 
-<!--                        tab content goes here-->
+                        <!--                        tab content goes here-->
                         <div class="tab-content" >
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="container-fluid">
@@ -146,38 +146,48 @@
                                             <div class="main-card mb-3 card">
                                                 <div class="card-body"><h5 class="card-title">Controls Types</h5>
                                                     @if($errors->any())
-                                                    <p class="alert alert-danger">{{ $errors->first() }}</p>
+                                                        <p class="alert alert-danger">{{ $errors->first() }}</p>
                                                     @endif
 
                                                     @if( Session::has('success'))
                                                         <p class="alert alert-success">{{ Session::get('success') }} <button class="close" data-dismiss="alert">&times;</button></p>
                                                     @endif
+                                                    @if( Session::has('slug_error'))
+                                                        <p class="alert alert-success">{{ Session::get('slug_error') }} <button class="close" data-dismiss="alert">&times;</button></p>
+                                                    @endif
 
-                                                    <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{ route('slider.update',$single_data ->id) }}" enctype="multipart/form-data">
                                                         @csrf
+                                                        @method('PUT')
                                                         <div class="position-relative form-group">
                                                             <label for="exampleEmail" class="">Title</label>
-                                                            <input name="title"  placeholder="Enter your title here." type="text" class="form-control" value="{{old('title') }}">
+                                                            <input name="title"  placeholder="Enter your title here." type="text" class="form-control" value="{{ $single_data ->title  }}">
                                                         </div>
                                                         <div class="position-relative form-group">
                                                             <label for="exampleEmail" class="">Slug</label>
-                                                            <input name="slug"  placeholder="Enter your slug here." type="text" class="form-control" value="{{old('slug') }}">
+                                                            <input type="text" name="slug" value="{{ $single_data ->slug }}" hidden >
+                                                            <input name="new_slug"  placeholder="Enter your slug here." type="text" class="form-control" value="{{ $single_data->slug  }}">
                                                         </div>
                                                         <div class="position-relative form-group">
                                                             <label for="exampleText" class="">Description</label>
-                                                            <textarea placeholder="Enter description"class="form-control" name="title_description">{{ old('title_description') }}</textarea>
-{{--                                                            <input type="text" placeholder="Enter description" name="title_description" id="exampleText" class="form-control" value="{{old('title_description') }}"></input>--}}
+                                                            <textarea placeholder="Enter description"class="form-control" name="title_description">{{ $single_data->description }}</textarea>
+                                                            {{--                                                            <input type="text" placeholder="Enter description" name="title_description" id="exampleText" class="form-control" value="{{old('title_description') }}"></input>--}}
                                                         </div>
 
                                                         <div class="position-relative form-group">
-                                                            <label for="exampleFile" class="">Photo</label>
-                                                            <input name="photo"  type="file" class="form-control-file">
+                                                            <label for="exampleFile" class="">Previously Added Photo</label>
+                                                            <img style="width: 50%; height: 50%;" src="{{ url('media/slider_image/'.$single_data->photo) }}" alt="">
+                                                            <br>
+                                                            <br>
+                                                            <input name="old_photo"  type="text" class="form-control-file" value="{{ $single_data ->photo }}" hidden>
+                                                            <label for="exampleFile" class="">NewPhoto</label>
+                                                            <input name="new_photo"  type="file" class="form-control-file">
 
                                                         </div>
 
 
                                                         <input type="submit" class="mt-1 btn btn-primary" value="Submit">
-<!--                                                        <button class="mt-1 btn btn-primary">Submit</button>-->
+                                                        <!--                                                        <button class="mt-1 btn btn-primary">Submit</button>-->
                                                     </form>
                                                 </div>
                                             </div>
@@ -190,7 +200,7 @@
 
                         <!--                        tab content ends here-->
 
-<!--                        modal goes here-->
+                        <!--                        modal goes here-->
                         <div class="modal" tabindex="-1" role="dialog" id="insert_modal">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -210,7 +220,7 @@
                                 </div>
                             </div>
                         </div>
-<!--                        model ends here-->
+                        <!--                        model ends here-->
 
                     </div>
                 </div>
