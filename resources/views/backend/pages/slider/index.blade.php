@@ -1048,7 +1048,8 @@
                                             </td>
                                             <td>
                                                 @if ($item->status == '1')
-                                                    Active
+                                                    Active  
+													@endphp
                                                 @else
                                                     Deactive
                                                 @endif

@@ -94,7 +94,7 @@ class ServiceController extends Controller
         $serviceUpdate->icon          = $request->input('icon');
         $serviceUpdate->status        = $request->input('status') == true ? '1' : '0';
         $serviceUpdate->save();
-        return redirect()->route('service.index')->with('status','Service Added Successfully!');
+        return redirect()->route('service.index')->with('status','Service Updated Successfully!');
     }
 
     /**

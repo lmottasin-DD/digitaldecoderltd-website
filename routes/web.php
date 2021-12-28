@@ -25,18 +25,27 @@ use App\Http\Controllers\Admin\DashboardController;
 // });
 // Route::get('/',[FrontController::class,'admin_dashboard']);
 
+//Home Pages Route Here...........
+
 Route::get('/', [FrontController::class, 'index']);
 
 Route::get('/read-more/{slug}', [FrontController::class, 'showRead'])->name('read.more');
 
+//About Pages Route Here...........
 
-Route::get('about', 'FrontController@about')->name('about');
+// Route::get('about', 'FrontController@about')->name('about');
+
+Route::get('abouts',[FrontController::class,'about'])->name('abouts');
+
+Route::get('about/feature',[FrontController::class,'aboutfeature'])->name('aboutfeature');
+
 Route::get('services', 'FrontController@service')->name('service');
 Route::get('testimonials', 'FrontController@testimonial')->name('testimonial');
 Route::get('portfolio', 'FrontController@portfolio')->name('portfolio');
 Route::get('contact', 'FrontController@contact')->name('contact');
 Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
+
 
 //===================  Backend Part for Digital Decoder Ltd.    =========================
 
