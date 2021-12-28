@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Models\Admin\Quote;
+use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class QuoteController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes = Quote::latest()->paginate(10);
-        return view('backend.pages.quote.index',compact('quotes'));
+        $abouts = About::latest()->paginate(10);
+        return view('backend.pages.about.index',compact('abouts'));
     }
 
     /**
@@ -27,7 +26,7 @@ class QuoteController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.quote.create');
+        //
     }
 
     /**
@@ -38,17 +37,7 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
-        $rules =[
-            'title' => 'required|max:20',
-            'description' =>'required|min:100'
-        ];
-        $this->validate($request,$rules);
-
-        $quote_store = new Quote();
-        $quote_store->title = $request->input('title');
-        $quote_store->description = $request->input('description');
-        $quote_store->save();
-        return redirect()->route('quote.index')->with('status','Quote Added Succrssfully!');
+        //
     }
 
     /**
@@ -59,8 +48,7 @@ class QuoteController extends Controller
      */
     public function show($id)
     {
-        $quote_view = Quote::findOrFail($id);
-        return view('backend.pages.quote.show', compact('quote_view'));
+        //
     }
 
     /**
@@ -71,8 +59,7 @@ class QuoteController extends Controller
      */
     public function edit($id)
     {
-        $quote = Quote::findOrFail($id);
-        return view('backend.pages.quote.edit',compact('quote'));
+        //
     }
 
     /**
@@ -84,11 +71,7 @@ class QuoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $quote = Quote::findOrFail($id);
-        $quote->title = $request->input('title');
-        $quote->description = $request->input('description');
-        $quote->save();
-        return redirect()->route('quote.index')->with('status','Quote Updated Successfully!');
+        //
     }
 
     /**
@@ -99,8 +82,6 @@ class QuoteController extends Controller
      */
     public function destroy($id)
     {
-        $quote_destory = Quote::findOrFail($id);
-        $quote_destory->delete();
-        return redirect()->back()->with('destory','Quote Deleted Successfully!');
+        //
     }
 }

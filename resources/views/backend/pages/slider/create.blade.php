@@ -46,15 +46,26 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('slider.store') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="">Heading</label>
                                             <input type="text" name="title" class="form-control">
+                                            @error('title')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Description</label>
                                             <textarea name="description" class="form-control"></textarea>
+                                            @error('description')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Link</label>
@@ -67,14 +78,24 @@
                                         <div class="form-group">
                                             <label for="">Slug</label>
                                             <input type="text" name="slug" class="form-control">
+                                            @error('slug')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Slider Image Upload</label>
                                             <input type="file" name="image" class="form-control">
+                                            @error('image')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Status</label>
-                                            <input type="checkbox" name="status"> 0=visiable,1=hidden
+                                            <input type="checkbox" name="status"> 0=Deactive,1=Active
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary" role="button">Submit</button>

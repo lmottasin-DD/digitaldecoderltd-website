@@ -28,7 +28,9 @@
                         <div class="content d-flex flex-column justify-content-center">
                             <h3 data-aos="fade-up">Unleashing the Possibilities</h3>
                             <p data-aos="fade-up">
-                                How? We help individuals/inventors/entrepreneurs/designers/developers/fresh-thinkers to achieve their dream and goal by showing them how to increase their overall productivity, identity and belief in their ability towards success. 
+                                How? We help individuals/inventors/entrepreneurs/designers/developers/fresh-thinkers to
+                                achieve their dream and goal by showing them how to increase their overall productivity,
+                                identity and belief in their ability towards success.
                             </p>
                             <div class="row">
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
@@ -46,12 +48,14 @@
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                     <i class="bx bx-images"></i>
                                     <h4>Our Vission</h4>
-                                    <p>To be the leading company in Development that empowers individuals & companies to transform their ideas to reality.</p>
+                                    <p>To be the leading company in Development that empowers individuals & companies to
+                                        transform their ideas to reality.</p>
                                 </div>
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                     <i class="bx bx-shield"></i>
                                     <h4>Our Mission</h4>
-                                    <p>Our mission is 100% client satisfaction and we focused on versatile project management.</p>
+                                    <p>Our mission is 100% client satisfaction and we focused on versatile project
+                                        management.</p>
                                 </div>
                             </div>
                         </div><!-- End .content-->

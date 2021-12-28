@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Admin\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use Illuminate\Support\Facades\File;
 
 class SliderController extends Controller
@@ -22,6 +23,14 @@ class SliderController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'title'         => 'required|max:20',
+            'description'   => 'required|min:100',
+            'slug'          =>'required|same:title',
+        ];
+
+        $this->validate($request,$rules);
+
         $slider = new Slider();
         $slider->title = $request->input('title');
         $slider->description = $request->input('description');
@@ -73,7 +82,7 @@ class SliderController extends Controller
         }
         $slider->status = $request->input('status') == true ? '1' : '0';
         $slider->save();
-        return redirect()->back()->with('status', 'Slider updated Successfully!');
+        return redirect()->route('home.slider')->with('status', 'Slider updated Successfully!');
     }
 
     public function destory($id)

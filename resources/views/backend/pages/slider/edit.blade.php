@@ -85,6 +85,11 @@
                                             <label for="">Status</label>
                                             <input type="checkbox" name="status"
                                                 {{ $slider->status == '1' ? 'checked' : '' }}> 0=Deactive,1=Active
+                                                @error('status')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary" role="button">Update</button>

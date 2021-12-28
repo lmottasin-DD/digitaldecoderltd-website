@@ -64,12 +64,57 @@
         <li class="">
             <a href="{{ route('quote.index') }}">
                 <i class="menu-icon fas fa-quote-right"></i>
-                <span class="menu-text"> Quote </span>
+                <span class="menu-text"> Quotes </span>
             </a>
 
             <b class="arrow"></b>
         </li>
         <!-- Quote sidebar start -->
+        <!-- service sidebar start -->
+        <li class="">
+            <a href="{{ route('service.index') }}">
+                <i class="menu-icon fab fa-servicestack"></i>
+
+                <span class="menu-text"> Services </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        <!-- service sidebar start -->
+
+        <!-- about sidebar start -->
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon far fa-address-card"></i>
+                <span class="menu-text"> Abouts </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            <ul class="submenu">
+                <li class="">
+                    <a href="{{route('about.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        About
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href="{{route('aboutfeature.index')}}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Feature
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+        <!-- about sidebar start -->
+
+
 
         <li class="">
             <a href="#" class="dropdown-toggle">

@@ -9,7 +9,7 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Admin</a>
                     </li>
-                    <li class="active">Quote</li>
+                    <li class="active">Service</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -39,38 +39,33 @@
                     <div class="col-md-12">
                         <div class="">
                             <div class="widget-header">
-                                <h4 class="widget-title col-md-11">Add Quote </h4>
-                                <a href="{{ route('quote.index') }}" class="btn btn-danger btn-sm pull-right"><i
+                                <h4 class="widget-title col-md-11">Show Service </h4>
+                                <a href="{{ route('service.index') }}" class="btn btn-danger btn-sm pull-right"><i
                                         class="fas fa-undo"></i></a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
-
-                                    <form action="{{ route('quote.store') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="">Heading</label>
-                                            <input type="text" name="title" class="form-control">
-                                            @error('title')
-                                                <span class="text-danger">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea name="description" class="form-control"></textarea>
-                                            @error('description')
-                                                <span class="text-danger">
-                                                    {{ $message }}
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary" role="button">Submit</button>
-                                        </div>
-                                    </form>
-
+                                    <div class="form-group">
+                                        <label for="">Heading</label>
+                                        <input type="text" name="title" class="form-control"
+                                            value="{{ $serviceShow->title }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Description</label>
+                                        <textarea name="description"
+                                            class="form-control">value="{{ $serviceShow->description }}"</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Icon</label>
+                                        <input type="text" class="form-control" name='icon'
+                                            value="{{ $serviceShow->icon }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Status</label>
+                                        <input type="checkbox" name="status"
+                                            {{ $serviceShow->status == '1' ? 'checked' : '' }}>
+                                        0=Deactive,1=Active
+                                    </div>
                                 </div>
                             </div>
                         </div>

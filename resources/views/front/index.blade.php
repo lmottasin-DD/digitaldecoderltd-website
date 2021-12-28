@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-left">
                         <h3>{{ $quoteItem->title }}</h3>
-                        <p> {{ Str::limit($quoteItem->description,200) }}
+                        <p> {{ Str::limit($quoteItem->description, 200) }}
                         </p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
@@ -69,15 +69,17 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="fade-up">
-                            <div class="icon"><i class="bi bi-exclude"></i></div>
-                            <h4 class="title"><a href="">All in One Solution</a></h4>
-                            <p class="description">Eliminate stress with one complete, strong solution. Total system from
-                                just one unique system.</p>
+                    @foreach ($serviceItem as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="icon-box" data-aos="fade-up">
+                                {{-- <div class="icon">{{ $item->icon }}</div> --}}
+                                <div class="icon"><i class="{{ $item->icon }}"></i></div>
+                                <h4 class="title"><a href="">{{ $item->title }}</a></h4>
+                                <p class="description">{{ Str::limit($item->description) }}</p>
+                            </div>
                         </div>
-                    </div>
 
+                    @endforeach
                 </div>
 
             </div>
@@ -101,7 +103,8 @@
                 <div class="row portfolio-container" data-aos="fade-up">
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="{{ asset('assets/front/img/portfolio/1615392340.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/front/img/portfolio/1615392340.png') }}" class="img-fluid"
+                            alt="">
                         <div class="portfolio-info">
                             <h4>Mobile App</h4>
                             <p>App</p>
@@ -114,7 +117,8 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="{{ asset('assets/front/img/portfolio/dokansheba.PNG') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/front/img/portfolio/dokansheba.PNG') }}" class="img-fluid"
+                            alt="">
                         <div class="portfolio-info">
                             <h4>Dokan Sheba</h4>
                             <p>Web</p>

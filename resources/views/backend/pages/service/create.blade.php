@@ -9,7 +9,7 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Admin</a>
                     </li>
-                    <li class="active">Slider</li>
+                    <li class="active">Service</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -39,53 +39,54 @@
                     <div class="col-md-12">
                         <div class="">
                             <div class="widget-header">
-                                <h4 class="widget-title col-md-11">View Slider </h4>
-                                <a href="{{ route('home.slider') }}" class="btn btn-danger btn-sm pull-right"><i
+                                <h4 class="widget-title col-md-11">Add Service </h4>
+                                <a href="{{ route('service.index') }}" class="btn btn-danger btn-sm pull-right"><i
                                         class="fas fa-undo"></i></a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
 
-                                    <form action="{{ url('update-slider/' . $slider_view->id) }}" method="POST"
+                                    <form action="{{ route('service.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
                                         <div class="form-group">
                                             <label for="">Heading</label>
-                                            <input type="text" name="title" value="{{ $slider_view->title }}"
-                                                class="form-control">
+                                            <input type="text" name="title" class="form-control">
+                                            @error('title')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Description</label>
-                                            <textarea name="description"
-                                                class="form-control">{{ $slider_view->description }}</textarea>
+                                            <textarea name="description" class="form-control"></textarea>
+                                            @error('description')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Link</label>
-                                            <input type="text" name="link" value="{{ $slider_view->link }}"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Link Name</label>
-                                            <input type="text" name="link_name" value="{{ $slider_view->link_name }}"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Slug</label>
-                                            <input type="text" name="slug" value="{{ $slider_view->slug }}"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Slider Image Upload</label>
-                                            <input type="file" name="image" value="{{ $slider_view->image }}"
-                                                class="form-control">
-                                            <img src="{{ asset('uploads/slider/' . $slider_view->image) }}" width="60px"
-                                                alt="">
+                                            <label for="">Icon</label>
+                                            <input type="text" class="form-control" name='icon'>
+                                            @error('icon')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="">Status</label>
-                                            <input type="checkbox" name="status"
-                                                {{ $slider_view->status == '1' ? 'checked' : '' }}> 0=Deactive,1=Active
+                                            <input type="checkbox" name="status"> 0=Deactive,1=Active 
+                                            @error('status')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" role="button">Submit</button>
                                         </div>
                                     </form>
 
