@@ -70,6 +70,16 @@
             <b class="arrow"></b>
         </li>
         <!-- Quote sidebar start -->
+        <!-- Quote sidebar start -->
+        <li class="">
+            <a href="{{ route('testimonial.index') }}">
+                <i class="menu-icon fas fa-address-book"></i>
+                <span class="menu-text"> Testimonials </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        <!-- Quote sidebar start -->
         <!-- service sidebar start -->
         <li class="">
             <a href="{{ route('service.index') }}">
@@ -113,9 +123,6 @@
             </ul>
         </li>
         <!-- about sidebar start -->
-
-
-
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>

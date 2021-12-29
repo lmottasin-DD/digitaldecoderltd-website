@@ -35,9 +35,9 @@ Route::get('/read-more/{slug}', [FrontController::class, 'showRead'])->name('rea
 
 // Route::get('about', 'FrontController@about')->name('about');
 
-Route::get('front/abouts',[FrontController::class,'about'])->name('abouts');
+Route::get('front/abouts', [FrontController::class, 'about'])->name('abouts');
 
-Route::get('front/about/feature',[FrontController::class,'aboutfeature'])->name('aboutfeature');
+Route::get('front/about/feature', [FrontController::class, 'aboutfeature'])->name('aboutfeature');
 
 Route::get('services', 'FrontController@service')->name('service');
 Route::get('testimonials', 'FrontController@testimonial')->name('testimonial');
@@ -94,6 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('aboutfeature', 'Admin\AboutfeatureController');
 
+    //Testimonial Route Here......
 
-
+    Route::resource('testimonial', 'Admin\TestimonialController');
 });

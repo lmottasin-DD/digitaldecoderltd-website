@@ -73,7 +73,7 @@
                                         <div class="form-group">
                                             <label for="">Slug</label>
                                             <input type="text" name="slug" value="{{ $slider->slug }}"
-                                                class="form-control">
+                                                class="form-control text-lowercase">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Slider Image Upload</label>

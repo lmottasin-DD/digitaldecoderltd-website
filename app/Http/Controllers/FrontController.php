@@ -41,13 +41,18 @@ class FrontController extends Controller
     public function about()
     {
         $aboutItem = About::where('status', 1)->latest()->first();
-        $featureItem = AboutFeature::where('status',1)->limit(4)->latest()->get();
+        $featureItem = AboutFeature::where('status', 1)->limit(4)->latest()->get();
         return view('front.about', compact('aboutItem', 'featureItem'));
     }
 
+    //Service Page Controller Here..........
+
     public function service()
     {
-        return view('front.service');
+        $serviceItem = Service::where('status', 1)->limit(6)->latest()->get();
+        $serviceFeature = AboutFeature::where('status',1)->first();
+
+        return view('front.service',compact('serviceItem','serviceFeature'));
     }
 
     public function testimonial()
