@@ -9,7 +9,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>About</h2>
                     <ol>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{url('/')}}">Home</a></li>
                         <li>About</li>
                     </ol>
                 </div>
@@ -22,41 +22,33 @@
             <div class="container">
 
                 <div class="row no-gutters">
+{{-- 
                     <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-                        data-aos="fade-right"></div>
+                        data-aos="fade-right"> --}}
+                        <div class="col-md-5">
+                            <img src="{{ asset('uploads/about/' . $aboutItem->image) }}" class="d-block w-100 "
+                            alt="about sidebar Image">
+                        </div>
+                    {{-- </div> --}}
                     <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                         <div class="content d-flex flex-column justify-content-center">
-                            <h3 data-aos="fade-up">Unleashing the Possibilities</h3>
+                            <h3 data-aos="fade-up">{{ $aboutItem->title }}</h3>
                             <p data-aos="fade-up">
-                                How? We help individuals/inventors/entrepreneurs/designers/developers/fresh-thinkers to
-                                achieve their dream and goal by showing them how to increase their overall productivity,
-                                identity and belief in their ability towards success.
+                                {{Str::limit($aboutItem->description ,250)}}
                             </p>
                             <div class="row">
-                                <div class="col-md-6 icon-box" data-aos="fade-up">
-                                    <i class="bx bx-receipt"></i>
-                                    <h4>Who We Are?</h4>
-                                    <p>Digital Decoder Limited is an IT enabled Development service providing company.
-                                    </p>
-                                </div>
-                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                                    <i class="bx bx-cube-alt"></i>
-                                    <h4>We Believe</h4>
-                                    <p>Unleashing the Possibilities.
-                                    </p>
-                                </div>
-                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                                    <i class="bx bx-images"></i>
-                                    <h4>Our Vission</h4>
-                                    <p>To be the leading company in Development that empowers individuals & companies to
-                                        transform their ideas to reality.</p>
-                                </div>
-                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                                    <i class="bx bx-shield"></i>
-                                    <h4>Our Mission</h4>
-                                    <p>Our mission is 100% client satisfaction and we focused on versatile project
-                                        management.</p>
-                                </div>
+
+                                @foreach ($featureItem as $item)
+
+                                    <div class="col-md-6 col-md-4 icon-box" data-aos="fade-up">
+                                        <div class="icon">
+                                            <i class="{{$item->icon}}"></i>
+                                        </div>
+                                        <h4>{{$item->title}}</h4>
+                                        <p>{{Str::limit($item->description,50)}}
+                                        </p>
+                                    </div>
+                                @endforeach
                             </div>
                         </div><!-- End .content-->
                     </div>

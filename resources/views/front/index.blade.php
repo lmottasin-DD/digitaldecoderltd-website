@@ -15,7 +15,7 @@
                         @php
                             $i++;
                         @endphp
-                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="d-block w-100 " alt="Slider Image">
+                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="d-block w-100" alt="Slider Image">
                         {{-- style="background-image: url({{ asset('uploads/slider/'.$item->image) }});"> --}}
                         <div class="carousel-container">
                             <div class="carousel-content animate__animated animate__fadeInUp">
@@ -72,10 +72,9 @@
                     @foreach ($serviceItem as $item)
                         <div class="col-lg-4 col-md-6">
                             <div class="icon-box" data-aos="fade-up">
-                                {{-- <div class="icon">{{ $item->icon }}</div> --}}
                                 <div class="icon"><i class="{{ $item->icon }}"></i></div>
                                 <h4 class="title"><a href="">{{ $item->title }}</a></h4>
-                                <p class="description">{{ Str::limit($item->description) }}</p>
+                                <p class="description">{{ Str::limit($item->description,300) }}</p>
                             </div>
                         </div>
 

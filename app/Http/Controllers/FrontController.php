@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\AboutFeature;
 use App\Models\Front;
 use App\Models\Service;
 use App\Models\Admin\Quote;
@@ -10,7 +12,8 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    
+
+    //Home Page Controller Here..........
 
     public function index()
     {
@@ -33,14 +36,14 @@ class FrontController extends Controller
         return view('front.readmore', compact('readSlug', 'recentpost'));
     }
 
-   
+    //About Page Controller Here..........
 
     public function about()
     {
-        return view('front.about');
+        $aboutItem = About::where('status', 1)->latest()->first();
+        $featureItem = AboutFeature::where('status',1)->limit(4)->latest()->get();
+        return view('front.about', compact('aboutItem', 'featureItem'));
     }
-
-
 
     public function service()
     {

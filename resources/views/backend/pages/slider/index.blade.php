@@ -1049,7 +1049,7 @@
                                             <td>
                                                 @if ($item->status == '1')
                                                     Active  
-													@endphp
+													
                                                 @else
                                                     Deactive
                                                 @endif

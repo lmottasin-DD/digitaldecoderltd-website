@@ -50,7 +50,7 @@
                         <div class="">
                             <div class="widget-header">
                                 <h4 class="widget-title col-md-11">All About </h4>
-                                <a href="{{ route('add.slider') }}" class="btn btn-primary btn-sm pull-right"><i
+                                <a href="{{ route('about.create') }}" class="btn btn-primary btn-sm pull-right"><i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -1068,14 +1068,17 @@
                                                         </span>
                                                     </button>
                                                 </a>
-                                                <a href="{{ route('about.destroy' , $item->id) }}">
-                                                    <button class="tooltip-error" data-rel="tooltip" title="Delete"
+												<br/>
+												<form action="{{ route('about.destroy', $item->id) }}" method="POST">
+													@method('delete')
+													@csrf
+													<button class="tooltip-danger"  title="Delete"
                                                         onclick="return confirm('Are You Sure To Deleted !')">
                                                         <span class="red">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </span>
                                                     </button>
-                                                </a>
+												</form>
                                             </td>
                                         </tr>
                                     @endforeach
