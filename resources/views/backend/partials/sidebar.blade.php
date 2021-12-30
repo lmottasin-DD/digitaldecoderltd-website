@@ -105,7 +105,7 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="{{route('about.index')}}">
+                    <a href="{{ route('about.index') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
                         About
                     </a>
@@ -113,7 +113,7 @@
                     <b class="arrow"></b>
                 </li>
                 <li class="">
-                    <a href="{{route('aboutfeature.index')}}">
+                    <a href="{{ route('aboutfeature.index') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Feature
                     </a>
@@ -123,6 +123,28 @@
             </ul>
         </li>
         <!-- about sidebar start -->
+        <!-- service sidebar start -->
+        <li class="">
+            <a href="{{ route('companyInfo.index') }}">
+                <i class="menu-icon fab fa-servicestack"></i>
+
+                <span class="menu-text"> Company Info </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+        <!-- service sidebar start -->
+                <!-- service sidebar start -->
+                <li class="">
+                    <a href="{{ route('clientInfo.index') }}">
+                        <i class="menu-icon fab fa-servicestack"></i>
+        
+                        <span class="menu-text"> Client Info </span>
+                    </a>
+        
+                    <b class="arrow"></b>
+                </li>
+                <!-- service sidebar start -->
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>

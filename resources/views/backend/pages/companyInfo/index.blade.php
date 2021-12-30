@@ -10,7 +10,7 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="#">Admin</a>
                     </li>
-                    <li class="active">Slider</li>
+                    <li class="active">Company Information</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -49,8 +49,8 @@
                     <div class="col-md-12">
                         <div class="">
                             <div class="widget-header">
-                                <h4 class="widget-title col-md-11">All Slider </h4>
-                                <a href="{{ route('add.slider') }}" class="btn btn-primary btn-sm pull-right"><i
+                                <h4 class="widget-title col-md-11">All Company Information </h4>
+                                <a href="{{ route('companyInfo.create') }}" class="btn btn-primary btn-sm pull-right"><i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -60,21 +60,20 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Image</th>
+                                        <th>Location</th>
+                                        <th>Email</th>
+                                        <th>Call</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sliders as $item)
+                                    @foreach ($companyInfo as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->title }}</td>
-                                            <td>
-                                                <img src="{{ asset('uploads/slider/' . $item->image) }}" width="40px"
-                                                    height="40px" alt="">
-                                            </td>
+                                            <td>{{ $item->company_location }}</td>
+                                            <td>{{ $item->company_email }}</td>
+                                            <td>{{ $item->company_call }}</td>
                                             <td>
                                                 @if ($item->status == '1')
                                                     Active  
@@ -84,25 +83,10 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ url('view-slider/' . $item->id) }}">
-                                                    <button class="tooltip-info" data-rel="tooltip" title="View">
-                                                        <span class="blue">
-                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                        </span>
-                                                    </button>
-                                                </a>
-                                                <a href="{{ url('edit-slider/' . $item->id) }}">
+                                                <a href="{{ route('companyInfo.edit', $item->id) }}">
                                                     <button class="tooltip-success" data-rel="tooltip" title="Edit">
                                                         <span class="green">
                                                             <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </button>
-                                                </a>
-                                                <a href="{{ url('destory-slider/' . $item->id) }}">
-                                                    <button class="tooltip-error" data-rel="tooltip" title="Delete"
-                                                        onclick="return confirm('Are You Sure To Deleted !')">
-                                                        <span class="red">
-                                                            <i class="fas fa-trash-alt"></i>
                                                         </span>
                                                     </button>
                                                 </a>
@@ -115,6 +99,38 @@
                         </div>
                     </div>
                 </div>
-                @include('backend.partials.paginate')
+                @if (count($companyInfo) > 0)
+                <span class="pull-right">
+                    <ul class="pagination">
+                        <li class=" @if ($companyInfo->appends(request()->query())->currentPage() == 1) disabled @endif">
+                            <a class="" href=" {{ $companyInfo->appends(request()->query())->url(1) }}">← First</a>
+                        </li>
+            
+                        <li class=" @if ($companyInfo->appends(request()->query())->currentPage() == 1) disabled @endif">
+                            <a class="" href=" {{ $companyInfo->appends(request()->query())->previousPageUrl() }}"><i
+                                    class="fa fa-angle-double-left"></i></a>
+                        </li>
+                        @foreach(range(1, $companyInfo->appends(request()->query())->lastPage()) as $i)
+                        @if ($i >= $companyInfo->appends(request()->query())->currentPage() - 4 && $i <= $companyInfo->appends(request()->query())->currentPage() + 4)
+                            @if ($i == $companyInfo->appends(request()->query())->currentPage())
+                                <li class="active"><span>{{ $i }}</span></li>
+                            @else
+                                <li><a href="{{ $companyInfo->appends(request()->query())->url($i) }}">{{ $i }}</a></li>
+                            @endif
+                        @endif
+            @endforeach
+            
+            <li class=" @if ($companyInfo->appends(request()->query())->lastPage() == $companyInfo->appends(request()->query())->currentPage()) disabled @endif">
+                <a class="" href=" {{ $companyInfo->appends(request()->query())->nextPageUrl() }}"><i
+                        class="fa fa-angle-double-right"></i></a>
+            </li>
+            <li class=" @if ($companyInfo->appends(request()->query())->lastPage() == $companyInfo->appends(request()->query())->currentPage()) disabled @endif">
+                <a class="" href=" {{ $companyInfo->appends(request()->query())->url($companyInfo->lastPage()) }}">Last
+                    →</a>
+            </li>
+            </ul>
+            </span>
+            @endif
+            
             </div>
         @endsection

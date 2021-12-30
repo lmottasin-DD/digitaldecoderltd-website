@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
-use App\Models\AboutFeature;
 use App\Models\Front;
 use App\Models\Service;
 use App\Models\Admin\Quote;
+use App\Models\AboutFeature;
 use App\Models\Admin\Slider;
 use Illuminate\Http\Request;
+use App\Models\Admin\Contact;
+use App\Models\Admin\CompanyInfo;
+use App\Models\Admin\Testimonial;
 
 class FrontController extends Controller
 {
@@ -57,7 +60,9 @@ class FrontController extends Controller
 
     public function testimonial()
     {
-        return view('front.testimonial');
+        $testimonialItem = Testimonial::where('status',1)->limit(2)->latest()->get();
+        
+        return view('front.testimonial',compact('testimonialItem'));
     }
 
     public function portfolio()
@@ -67,8 +72,22 @@ class FrontController extends Controller
 
     public function contact()
     {
-        return view('front.contact');
+        $company_info = CompanyInfo::where('status',1)->latest()->first();
+        
+        return view('front.contact',compact('company_info'));
     }
+
+    // public function store(Request $request){
+
+    //     $Info_store = new Contact();
+    //     $Info_store->client_name = $request->input('client_name');
+    //     $Info_store->client_email = $request->input('client_email');
+    //     $Info_store->client_subject = $request->input('client_subject');
+    //     $Info_store->client_message = $request->input('client_message');
+    //     $Info_store->save();
+
+    //     return redirect()->route('about');
+    // }
 
     public function blog()
     {

@@ -9,7 +9,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>About</h2>
                     <ol>
-                        <li><a href="{{url('/')}}">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         <li>About</li>
                     </ol>
                 </div>
@@ -22,40 +22,38 @@
             <div class="container">
 
                 <div class="row no-gutters">
-{{-- 
-                    <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-                        data-aos="fade-right"> --}}
                         <div class="col-md-5">
                             <img src="{{ asset('uploads/about/' . $aboutItem->image) }}" class="d-block w-100 "
-                            alt="about sidebar Image">
+                                alt="about sidebar Image">
                         </div>
-                    {{-- </div> --}}
-                    <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-                        <div class="content d-flex flex-column justify-content-center">
-                            <h3 data-aos="fade-up">{{ $aboutItem->title }}</h3>
-                            <p data-aos="fade-up">
-                                {{Str::limit($aboutItem->description ,250)}}
-                            </p>
-                            <div class="row">
+                        <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+                            <div class="content d-flex flex-column justify-content-center">
+                                <h3 data-aos="fade-up">{{ $aboutItem->title }}</h3>
+                                <p data-aos="fade-up">
+                                    {{ Str::limit($aboutItem->description, 250) }}
+                                </p>
+                                <div class="row">
 
-                                @foreach ($featureItem as $item)
+                                    @foreach ($featureItem as $item)
 
-                                    <div class="col-md-6 col-md-4 icon-box" data-aos="fade-up">
-                                        <div class="icon">
-                                            <i class="{{$item->icon}}"></i>
+                                        <div class="col-md-6 col-md-4 icon-box" data-aos="fade-up">
+                                            <div class="icon">
+                                                <i class="{{ $item->icon }}"></i>
+                                            </div>
+                                            <h4>{{ $item->title }}</h4>
+                                            <p>{{ Str::limit($item->description, 50) }}
+                                            </p>
                                         </div>
-                                        <h4>{{$item->title}}</h4>
-                                        <p>{{Str::limit($item->description,50)}}
-                                        </p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div><!-- End .content-->
-                    </div>
+                                    @endforeach
+                                </div>
+                            </div><!-- End .content-->
+                        </div>
                 </div>
 
             </div>
-        </section><!-- End About Us Section -->
+        </section>
+
+        <!-- End About Us Section -->
 
         <!-- ======= Our Team Section ======= -->
         {{-- <section id="team" class="team section-bg">

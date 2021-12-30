@@ -64,7 +64,6 @@
                                         <th>Titel</th>
                                         <th>Designation</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
                                         <th>Image</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -80,9 +79,6 @@
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td>
-                                                {{ $item->phone }}
-                                            </td>
                                             <td>
                                                 <img src="{{ asset('uploads/testimonial/' . $item->image) }}" width="40px"
                                                     height="40px" alt="">
