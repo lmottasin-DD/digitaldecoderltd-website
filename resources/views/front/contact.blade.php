@@ -35,19 +35,19 @@
                 <div class="col-lg-4 info">
                   <i class="bi bi-geo-alt"></i>
                   <h4>Location:</h4>
-                  <p>E-9/6, East Tower <br> Chaina Town, Nayapaltan</p>
+                  <p>{{ $all_data ->location }}</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-envelope"></i>
                   <h4>Email:</h4>
-                  <p>info@digitaldecoderltd.com<br>contact@digitaldecoderltd.com</p>
+                  <p>{{ $all_data ->email }}</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-phone"></i>
                   <h4>Call:</h4>
-                  <p>+9613661122</p>
+                  <p>{{ $all_data ->call }}</p>
                 </div>
               </div>
             </div>
@@ -58,7 +58,8 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{ route('contact.info') }}" method="POST" >
+                @csrf
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -74,11 +75,14 @@
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
+
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                  @if( Session::has('success'))
+                      <div class="sent-message">Your message has been sent. Thank you!</div>
+                  @endif
+               {{-- <div class="sent-message">Your message has been sent. Thank you!</div>--}}
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div  class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
 

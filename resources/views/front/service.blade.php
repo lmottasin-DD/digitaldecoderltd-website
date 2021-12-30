@@ -20,55 +20,26 @@
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
+
       <div class="container">
 
+
         <div class="row">
+            @foreach($service_data as $data)
           <div class="col-lg-4 col-md-6">
               <div class="icon-box" data-aos="fade-up">
-                  <div class="icon"><i class="bi bi-exclude"></i></div>
-                  <h4 class="title"><a href="">All in One Solution</a></h4>
-                  <p class="description">Eliminate stress with one complete, strong solution. Total system from just one unique system.</p>
+                  <div class="icon"><i class="{{ $data->icon }}"></i></div>
+                  <h4 class="title"><a href="">{{ $data ->title }}</a></h4>
+                  <p class="description">{{ $data->description }}</p>
               </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                  <h4 class="title"><a href="">Independent Platform</a></h4>
-                  <p class="description">With software that can run independently on any platform, real-time activity monitoring becomes easy.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <div class="icon"><i class="bi bi-bar-chart"></i></div>
-                  <h4 class="title"><a href="">Data Consolidation</a></h4>
-                  <p class="description"> Gather vast amounts of data in one central place. Stress-free, hassle-free, easy; the perfect solution to human cost management.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <div class="icon"><i class="bi bi-binoculars"></i></div>
-                  <h4 class="title"><a href="">Web Applicaiton</a></h4>
-                  <p class="description">Our custom tailored web applications and e-Commerce fits with client business needs and increase operational efficiency</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <div class="icon"><i class="bi bi-phone-fill"></i></div>
-                  <h4 class="title"><a href="">Moblie Applicaiotn</a></h4>
-                  <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                  <div class="icon"><i class="bi bi-apple"></i></div>
-                  <h4 class="title"><a href="">IOS Application</a></h4>
-                  <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-              </div>
-          </div>
+        @endforeach
       </div>
 
       </div>
-    </section><!-- End Services Section -->
+
+    </section>
+    <!-- End Services Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">

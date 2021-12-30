@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Cta;
 use App\Models\Front;
+use App\Models\GetContactInfo;
+use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\returnArgument;
@@ -15,7 +19,13 @@ class FrontController extends Controller
     }
 
     public function service(){
-        return view('front.service');
+
+        $data = Service::latest()->get();
+
+        //return $data;
+        return view('front.service',[
+            'service_data' => $data,
+        ]);
     }
 
     public function testimonial(){
@@ -27,7 +37,13 @@ class FrontController extends Controller
     }
 
     public function contact(){
-        return view('front.contact');
+
+        $data = Contact::where('status',1)->first();
+
+        //return $data;
+        return view('front.contact',[
+            'all_data' => $data,
+        ]);
     }
 
     public function blog(){
@@ -35,11 +51,29 @@ class FrontController extends Controller
     }
     public function index()
     {
-        $all_data = Slider::where('status','=',1)->get();
-//        return $all_data;
+        $data['all_data'] = Slider::where('status','=',1)->get();
 
-        return view('front.index',[
-            'all_data'=>$all_data,
-        ]);
+        $data['cta_data'] = Cta::where('status',1)->first();
+
+        $data['service_data'] = Service::where('status',1)->get();
+//        return $data;
+
+//        return $cta_data[0];
+
+//        return view('front.index',[
+//            'all_data'=>$all_data,
+//            'cta_data' => $cta_data[0],
+//        ]);
+        return view('front.index', $data);
     }
+
+     public function getContactInfo( Request  $request){
+        GetContactInfo::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request-> subject,
+            'message' => $request-> message,
+        ]);
+        return redirect()->back()->with('success','Your message has been sent. Thank you!');
+     }
 }

@@ -7,19 +7,21 @@
 
         <div class="carousel-inner" role="listbox">
 
+            @foreach($all_data as $data)
             <!-- Slide 1 -->
             <div class="carousel-item active" style="background-image: url({{ asset('assets/front/img/slide/digitaldecoderltd1.jfif') }});">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
-                        <h2>Welcome to <span>Digital Decoder Limited.</span></h2>
+                        <h2>{{ $data->title }}</h2>
                         <p>A Private Software Technology Park. Transform your ideas into custom business applicaitons. Build your Software and Mobile Apps with us.</p>
                         <div class="text-center"><a href="#" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
             </div>
+            @endforeach
 
 {{--             Slide 2--}}
-            <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-2.jpg);">
+           {{-- <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-2.jpg);">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
                         <h2>Make The World Easier</h2>
@@ -27,10 +29,10 @@
                         <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
 
             <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-3.jpg);">
+<!--            <div class="carousel-item" style="background-image: url(assets/front/img/slide/slide-3.jpg);">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
                         <h2>Wear Mask, Stay Safe</h2>
@@ -38,7 +40,7 @@
                         <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -60,71 +62,54 @@
     <section id="cta" class="cta">
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-9 text-center text-lg-left">
-                    <h3>We've created more than <span>10 E-commerce</span> this year!</h3>
-                    <p> Digital Decoder Limited with its dedicated teams render high quality IT solutions with professional management services of excellence,quality assurance & on time turnkey automation.</p>
+           @if( $cta_data)
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3> {{ $cta_data->header }}</h3>
+                        <p> {{ $cta_data ->description }}</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="#">Request a quote</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#">Request a quote</a>
+            @else
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3> Please publish a cta section from admin panel</h3>
+
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="#">Request a quote</a>
+                    </div>
                 </div>
-            </div>
+            @endif
 
         </div>
     </section><!-- End Cta Section -->
 
     <!-- ======= Services Section ======= -->
+
+    <!-- End Services Section -->
     <section id="services" class="services">
+
         <div class="container">
 
+
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up">
-                        <div class="icon"><i class="bi bi-exclude"></i></div>
-                        <h4 class="title"><a href="">All in One Solution</a></h4>
-                        <p class="description">Eliminate stress with one complete, strong solution. Total system from just one unique system.</p>
+                @foreach($service_data as $data)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box" data-aos="fade-up">
+                            <div class="icon"><i class="{{ $data->icon }}"></i></div>
+                            <h4 class="title"><a href="">{{ $data ->title }}</a></h4>
+                            <p class="description">{{ $data->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                        <h4 class="title"><a href="">Independent Platform</a></h4>
-                        <p class="description">With software that can run independently on any platform, real-time activity monitoring becomes easy.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon"><i class="bi bi-bar-chart"></i></div>
-                        <h4 class="title"><a href="">Data Consolidation</a></h4>
-                        <p class="description"> Gather vast amounts of data in one central place. Stress-free, hassle-free, easy; the perfect solution to human cost management.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon"><i class="bi bi-binoculars"></i></div>
-                        <h4 class="title"><a href="">Web Applicaiton</a></h4>
-                        <p class="description">Our custom tailored web applications and e-Commerce fits with client business needs and increase operational efficiency</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon"><i class="bi bi-phone-fill"></i></div>
-                        <h4 class="title"><a href="">Moblie Applicaiotn</a></h4>
-                        <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                        <div class="icon"><i class="bi bi-apple"></i></div>
-                        <h4 class="title"><a href="">IOS Application</a></h4>
-                        <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
-    </section><!-- End Services Section -->
 
+    </section>
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
         <div class="container">

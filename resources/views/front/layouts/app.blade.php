@@ -94,7 +94,7 @@
                         </ul>
                     </li> --}}
                     <li><a class="{{ Request::routeIs('contact') ? 'active' : '' }}"
-                            href="{{ route('contact') }}">Contact</a></li>
+                            href="{{ route('contact.page') }}">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

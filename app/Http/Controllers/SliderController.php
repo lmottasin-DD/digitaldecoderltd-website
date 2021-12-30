@@ -44,9 +44,11 @@ class SliderController extends Controller
         //validation
         $this->validate($request,[
            'title'=>'required',
-           'slug'=>'required',
+           'slug'=>'required|unique:sliders',
            'title_description'=> 'required',
            'photo'=>'required'
+        ],[
+            'slug.unique'=>'Please choose a unique slug',
         ]);
         // photo
         if ( $request->hasFile('photo'))
@@ -112,7 +114,7 @@ class SliderController extends Controller
         if ( $request->has('new_slug'))
             {
                 $temp = Slider::where('slug','=',$request->new_slug)->get();
-                
+
                 if( $temp ->count()==0)
                 {
                     $update_data->slug = Str::slug($request->new_slug);
