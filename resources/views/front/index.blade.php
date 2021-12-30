@@ -49,17 +49,32 @@
         <!-- ======= Cta Section ======= -->
         <section id="cta" class="cta">
             <div class="container">
+                @if ($quoteItem)
+                    <div class="row">
+                        <div class="col-lg-9 text-center text-lg-left">
+                            <h3>{{ $quoteItem->title }}</h3>
+                            <p> {{ Str::limit($quoteItem->description, 200) }}
+                            </p>
+                        </div>
+                        <div class="col-lg-3 cta-btn-container text-center">
+                            <a class="cta-btn align-middle" href="#">Request a quote</a>
+                        </div>
+                    </div>
+                @else
 
-                <div class="row">
-                    <div class="col-lg-9 text-center text-lg-left">
-                        <h3>{{ $quoteItem->title }}</h3>
-                        <p> {{ Str::limit($quoteItem->description, 200) }}
-                        </p>
+                    <div class="row">
+                        <div class="col-lg-9 text-center text-lg-left">
+                            <h3>Please Data Entry</h3>
+                            <p>Please Description Entry
+                            </p>
+                        </div>
+                        <div class="col-lg-3 cta-btn-container text-center">
+                            <a class="cta-btn align-middle" href="#">Request a quote</a>
+                        </div>
                     </div>
-                    <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">Request a quote</a>
-                    </div>
-                </div>
+
+
+                @endif
 
             </div>
         </section><!-- End Cta Section -->
@@ -67,20 +82,36 @@
         <!-- ======= Services Section ======= -->
         <section id="services" class="services">
             <div class="container">
-
-                <div class="row">
-                    @foreach ($serviceItem as $item)
-                        <div class="col-lg-4 col-md-6">
-                            <div class="icon-box" data-aos="fade-up">
-                                <div class="icon"><i class="{{ $item->icon }}"></i></div>
-                                <h4 class="title"><a href="">{{ $item->title }}</a></h4>
-                                <p class="description">{{ Str::limit($item->description,300) }}</p>
+                @if ($serviceItem)
+                    <div class="row">
+                        @foreach ($serviceItem as $item)
+                            <div class="col-lg-4 col-md-6">
+                                <div class="icon-box" data-aos="fade-up">
+                                    <div class="icon"><i class="{{ $item->icon }}"></i></div>
+                                    <h4 class="title"><a href="">{{ $item->title }}</a></h4>
+                                    <p class="description">{{ Str::limit($item->description, 300) }}</p>
+                                </div>
                             </div>
-                        </div>
 
-                    @endforeach
-                </div>
+                        @endforeach
+                    </div>
 
+                @else
+
+
+                    <div class="row">
+                        @foreach ($serviceItem as $item)
+                            <div class="col-lg-4 col-md-6">
+                                
+                                   
+                                    <h4 class="title">Please Data Entry</h4>
+                                    
+                                </div>
+                            </div>
+
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </section><!-- End Services Section -->
 
