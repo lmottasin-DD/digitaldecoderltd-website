@@ -138,73 +138,59 @@
                     <div class="app-inner-layout__content">
 
                         <!--                        tab content goes here-->
-                        <div class="tab-content">
-                            <!--                            <a href="#" id="modal_btn_show" class="btn btn-sm btn-info"> Add New Slider </a>-->
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body"><h5 class="card-title">Slider Information</h5>
-                                                @if( Session::has('success'))
-                                                    <p class="alert alert-success">{{ Session::get('success') }} <button class="close" data-dismiss="alert">&times;</button></p>
-                                                @endif
-                                                <table class="mb-0 table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Icon Name</th>
-                                                        <th>Description</th>
-                                                        <th>Status</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
+                        <div class="tab-content" >
+                            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="main-card mb-3 card">
+                                                <div class="card-body"><h5 class="card-title">Controls Types</h5>
+                                                    @if($errors->any())
+                                                        <p class="alert alert-danger">{{ $errors->first() }}</p>
+                                                    @endif
 
-                                                    @foreach( $all_data as $data)
-                                                        <tr>
-                                                            <td>{{ $loop->index +1 }}</td>
-                                                            <td>{{ $data->title }}</td>
-                                                            <td> {{ $data -> icon }} </td>
-                                                            <td>{{ Str::limit($data->description, 5) }}</td>
+                                                    @if( Session::has('success'))
+                                                        <p class="alert alert-success">{{ Session::get('success') }} <button class="close" data-dismiss="alert">&times;</button></p>
+                                                    @endif
+                                                    @if( Session::has('slug_error'))
+                                                        <p class="alert alert-success">{{ Session::get('slug_error') }} <button class="close" data-dismiss="alert">&times;</button></p>
+                                                    @endif
 
-                                                            <td>
-                                                                @if( $data->status == 0)
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-danger">unpublished</a>
-                                                                @else
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-success">published</a>
-                                                                @endif
-                                                            </td>
-                                                            <td>
-
-                                                                <a href="{{ route('service.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                                                                <a class="btn btn-sm btn-info" href="{{ route('service.edit',$data->id) }}"><i class="fas fa-edit "></i></a>
-
-                                                                <form style="display: inline" action="{{ route('testimonial.destroy',$data->id) }}" method="POST" >
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                                                                </form>
+                                                    <form method="POST" action="{{ route('about.update',$single_data ->id) }}" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="position-relative form-group">
+                                                            <label for="exampleEmail" class="">Title</label>
+                                                            <input name="title"   type="text" class="form-control" value="{{ $single_data ->title  }}">
+                                                        </div>
 
 
-                                                            </td>
+                                                        <div class="position-relative form-group">
+                                                            <label for="exampleText" class="">Description</label>
+                                                            <textarea placeholder="Enter description"class="form-control" name="description">{{ $single_data->description }}</textarea>
+                                                            {{--                                                            <input type="text" placeholder="Enter description" name="title_description" id="exampleText" class="form-control" value="{{old('title_description') }}"></input>--}}
+                                                        </div>
+
+                                                        <div class="position-relative form-group">
+                                                            <label for="exampleFile" class="">Previously Added Photo</label><br>
+                                                            <img style="width: 50%; height: 50%;" src="{{ url('media/about_image/'.$single_data->photo) }}" alt="">
+                                                            <br>
+                                                            <br>
+                                                            <input name="old_photo"  type="text" class="form-control-file" value="{{ $single_data ->photo }}" hidden>
+                                                            <label for="exampleFile" class="">NewPhoto</label>
+                                                            <input name="new_photo"  type="file" class="form-control-file">
+
+                                                        </div>
 
 
-                                                        </tr>
-                                                    @endforeach
-
-                                                    {{--{{ $all_data->links() }}--}}
-
-                                                    </tbody>
-
-                                                </table>
-                                                @include('backend.paginate',['style'=>'rounded','data'=>$all_data])
+                                                        <input type="submit" class="mt-1 btn btn-primary" value="Submit">
+                                                        <!--                                                        <button class="mt-1 btn btn-primary">Submit</button>-->
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
 
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -240,5 +226,3 @@
 
 
 @endsection
-
-

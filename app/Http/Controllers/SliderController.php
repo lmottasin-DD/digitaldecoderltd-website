@@ -64,7 +64,7 @@ class SliderController extends Controller
             'slug'=> Str::slug($request->slug)
         ]);
 
-        return redirect()->back()->with('success','Slider Added Successfully!');
+        return redirect()->route('slider.index')->with('success','Slider Added Successfully!');
 
 
     }

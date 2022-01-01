@@ -29,7 +29,7 @@ Route::group([], function()
 });*/
 Route::post('get/contact/info','FrontController@getContactInfo')->name('contact.info');
 
-Route::get('about', 'FrontController@about')->name('about');
+Route::get('front/about/', 'FrontController@about')->name('front.about');
 Route::get('services', 'FrontController@service')->name('service');
 Route::get('testimonials', 'FrontController@testimonial')->name('testimonial');
 Route::get('portfolio', 'FrontController@portfolio')->name('portfolio');
@@ -92,5 +92,32 @@ Route::group(['middleware'=>'auth'], function(){
 
 
 });
+
+/*email form frontend*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('email','GetEmailController');
+});
+
+/*testimonial*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('testimonial','TestimonialController');
+    Route::get('testimonial/status-change/{id}','TestimonialController@statusChange')->name('testimonial.status.change');
+});
+
+/*about*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('about','AboutController');
+    Route::get('about/status-change/{id}','AboutController@statusChange')->name('about.status.change');
+});
+
+/*sub about*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('sub-about','SubAboutController');
+   Route::get('sub-about/status-change/{id}','SubAboutController@statusChange')->name('sub-about.status.change');
+});
+
+
+
+
 
 

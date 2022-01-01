@@ -28,6 +28,90 @@
                             <li><a href="statistics-dashboard.html">Statistics</a></li>
                         </ul>
                     </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Slider
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('slider.index') }}">Show all</a></li>
+                            <li><a href="{{ route('slider.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            CTA Section
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('cta.index') }}">Show all</a></li>
+                            <li><a href="{{ route('cta.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Service
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('service.index') }}">Show all</a></li>
+                            <li><a href="{{ route('service.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Contact Page
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('contact.index') }}">Show all</a></li>
+                            <li><a href="{{ route('contact.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Emails
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('email.index') }}">Show all</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Testimonial
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('testimonial.index') }}">Show all</a></li>
+                            <li><a href="{{ route('testimonial.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            About
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('about.index') }}">Show all</a></li>
+                            <li><a href="{{ route('about.create') }}">Create</a></li>
+
+                        </ul>
+                    </li>
                     <li>
                         <a href="#">
                             <i class="metismenu-icon pe-7s-browser"></i>

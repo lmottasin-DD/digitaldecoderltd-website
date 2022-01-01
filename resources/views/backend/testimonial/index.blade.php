@@ -152,9 +152,9 @@
                                                     <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Icon Name</th>
-                                                        <th>Description</th>
+                                                        <th>Name</th>
+                                                        <th>Quote</th>
+                                                        <th>Designation</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -164,21 +164,22 @@
                                                     @foreach( $all_data as $data)
                                                         <tr>
                                                             <td>{{ $loop->index +1 }}</td>
-                                                            <td>{{ $data->title }}</td>
-                                                            <td> {{ $data -> icon }} </td>
-                                                            <td>{{ Str::limit($data->description, 5) }}</td>
+                                                            <td>{{ $data->name }}</td>
+                                                            <td>{{ Str::limit($data->quote, 10) }}</td>
+                                                            <td> {{ $data -> designation }} </td>
+
 
                                                             <td>
                                                                 @if( $data->status == 0)
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-danger">unpublished</a>
+                                                                    <a href="{{ route('testimonial.status.change',$data->id) }}" class="badge badge-danger">unpublished</a>
                                                                 @else
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-success">published</a>
+                                                                    <a href="{{ route('testimonial.status.change',$data->id) }}" class="badge badge-success">published</a>
                                                                 @endif
                                                             </td>
                                                             <td>
 
-                                                                <a href="{{ route('service.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                                                                <a class="btn btn-sm btn-info" href="{{ route('service.edit',$data->id) }}"><i class="fas fa-edit "></i></a>
+                                                                <a href="{{ route('testimonial.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                                                                <a class="btn btn-sm btn-info" href="{{ route('testimonial.edit',$data->id) }}"><i class="fas fa-edit "></i></a>
 
                                                                 <form style="display: inline" action="{{ route('testimonial.destroy',$data->id) }}" method="POST" >
                                                                     @csrf

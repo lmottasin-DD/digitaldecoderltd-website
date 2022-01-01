@@ -45,7 +45,7 @@ class CtaController extends Controller
 
         ]);
 
-        return redirect()->back()->with('success','Cta section added successful!');
+        return redirect()->route('cta.index')->with('success','Cta section added successful!');
     }
 
     /**

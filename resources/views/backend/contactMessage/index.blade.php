@@ -152,10 +152,11 @@
                                                     <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Icon Name</th>
-                                                        <th>Description</th>
-                                                        <th>Status</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Subject</th>
+                                                        <th>Message</th>
+                                                        <th>Sent At</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
@@ -164,27 +165,19 @@
                                                     @foreach( $all_data as $data)
                                                         <tr>
                                                             <td>{{ $loop->index +1 }}</td>
-                                                            <td>{{ $data->title }}</td>
-                                                            <td> {{ $data -> icon }} </td>
-                                                            <td>{{ Str::limit($data->description, 5) }}</td>
+                                                            <td>{{ $data->name }}</td>
+                                                            <td> {{ $data -> email }} </td>
+                                                            <td> {{ $data -> subject }} </td>
+
+                                                            <td> {{ Str::limit($data->message, 15) }}</td>
+                                                            <td> {{ $data-> created_at->diffForHumans() }} </td>
+
+
 
                                                             <td>
-                                                                @if( $data->status == 0)
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-danger">unpublished</a>
-                                                                @else
-                                                                    <a href="{{ route('service.status.change',$data->id) }}" class="badge badge-success">published</a>
-                                                                @endif
-                                                            </td>
-                                                            <td>
 
-                                                                <a href="{{ route('service.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                                                                <a class="btn btn-sm btn-info" href="{{ route('service.edit',$data->id) }}"><i class="fas fa-edit "></i></a>
+                                                                <a href="{{ route('email.show',$data->id) }}" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
 
-                                                                <form style="display: inline" action="{{ route('testimonial.destroy',$data->id) }}" method="POST" >
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                                                                </form>
 
 
                                                             </td>

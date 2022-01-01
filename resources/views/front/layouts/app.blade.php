@@ -65,7 +65,7 @@
                     <li><a class="{{ request()->segment(1) == '' ? 'active' : '' }}"
                             href="{{ url('/') }}">Home</a></li>
                     <li><a class="{{ Request::routeIs('about') ? 'active' : '' }}"
-                            href="{{ route('about') }}">About</a></li>
+                            href="{{ route('front.about') }}">About</a></li>
                     <li><a class="{{ Request::routeIs('service') ? 'active' : '' }}"
                             href="{{ route('service') }}">Services</a></li>
                     <li><a class="{{ Request::routeIs('testimonial') ? 'active' : '' }}"

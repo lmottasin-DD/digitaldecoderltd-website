@@ -22,24 +22,26 @@
             <div class="container">
 
                 <div class="row no-gutters">
-                    <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-                        data-aos="fade-right"></div>
+<img class="col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" src="{{ asset('media/about_image/' .$about_data->photo) }}" alt="">
+
                     <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                         <div class="content d-flex flex-column justify-content-center">
-                            <h3 data-aos="fade-up">Unleashing the Possibilities</h3>
+                            <h3 data-aos="fade-up">{{ $about_data ->title }}</h3>
                             <p data-aos="fade-up">
-                                How? We help individuals/inventors/entrepreneurs/designers/developers/fresh-thinkers to achieve their dream and goal by showing them how to increase their overall productivity, identity and belief in their ability towards success. 
+                            {{ $about_data ->description  }}
                             </p>
                             <div class="row">
+                                @foreach($sub_about_data as $sub_data)
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
-                                    <i class="bx bx-receipt"></i>
-                                    <h4>Who We Are?</h4>
-                                    <p>Digital Decoder Limited is an IT enabled Development service providing company.
+                                    <i class="{{ $sub_data->icon }}"></i>
+                                    <h4>{{ $sub_data->sub_heading }}</h4>
+                                    <p>{{ $sub_data -> sub_description }}
                                     </p>
                                 </div>
-                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                            @endforeach
+<!--                                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                     <i class="bx bx-cube-alt"></i>
-                                    <h4>We Believe</h4>
+                                    <h4></h4>
                                     <p>Unleashing the Possibilities.
                                     </p>
                                 </div>
@@ -52,7 +54,7 @@
                                     <i class="bx bx-shield"></i>
                                     <h4>Our Mission</h4>
                                     <p>Our mission is 100% client satisfaction and we focused on versatile project management.</p>
-                                </div>
+                                </div>-->
                             </div>
                         </div><!-- End .content-->
                     </div>

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Contact;
 use App\Models\Cta;
 use App\Models\Front;
-use App\Models\GetContactInfo;
+use App\Models\Email;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\SubAbout;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\returnArgument;
 
@@ -15,12 +18,20 @@ class FrontController extends Controller
 {
     public function about()
     {
-        return view('front.about');
+        $data = About::where('status',1)->first();
+
+        $sub_about_data = SubAbout::where('status',1)->get();
+
+        //return $data;
+        return view('front.about',[
+            'about_data' => $data,
+            'sub_about_data' => $sub_about_data,
+        ]);
     }
 
     public function service(){
 
-        $data = Service::latest()->get();
+        $data = Service::where('status',1)->get();
 
         //return $data;
         return view('front.service',[
@@ -29,7 +40,12 @@ class FrontController extends Controller
     }
 
     public function testimonial(){
-        return view('front.testimonial');
+
+        $data = Testimonial::where('status',1)->get() ;
+
+        return view('front.testimonial',[
+            'testimonial_data' => $data,
+        ]);
     }
 
     public function portfolio(){
@@ -68,7 +84,7 @@ class FrontController extends Controller
     }
 
      public function getContactInfo( Request  $request){
-        GetContactInfo::create([
+        Email::create([
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request-> subject,
