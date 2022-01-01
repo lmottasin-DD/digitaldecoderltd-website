@@ -145,6 +145,17 @@
                     <b class="arrow"></b>
                 </li>
                 <!-- service sidebar start -->
+                <!-- portfolio sidebar start -->
+                <li class="">
+                    <a href="{{ route('company_portfolio.index') }}">
+                        <i class="menu-icon fab fa-servicestack"></i>
+        
+                        <span class="menu-text">Company Portfolio</span>
+                    </a>
+        
+                    <b class="arrow"></b>
+                </li>
+                <!-- portfolio sidebar start -->
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>

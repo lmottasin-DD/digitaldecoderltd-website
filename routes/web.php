@@ -104,5 +104,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('clientInfo','Admin\ContactContorller');
 
+    //Portfolio  Route Here....
+
+    Route::resource('company_portfolio','Admin\PortfolioController');
+
 
 });

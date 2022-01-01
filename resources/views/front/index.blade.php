@@ -15,10 +15,10 @@
                         @php
                             $i++;
                         @endphp
-                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="d-block w-100" alt="Slider Image">
+                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="d-block w-100 rounded" alt="Slider Image">
                         {{-- style="background-image: url({{ asset('uploads/slider/'.$item->image) }});"> --}}
                         <div class="carousel-container">
-                            <div class="carousel-content animate__animated animate__fadeInUp">
+                            <div class="carousel-content animate__animated animate__fadeInUp rounded">
                                 <h2>{{ $item->title }}</h2>
                                 <p>{{ Str::limit($item->description, 200) }}</p>
                                 <div class="text-center"><a href="{{ route('read.more', $item->slug) }}"
@@ -89,7 +89,7 @@
                                 <div class="icon-box" data-aos="fade-up">
                                     <div class="icon"><i class="{{ $item->icon }}"></i></div>
                                     <h4 class="title"><a href="">{{ $item->title }}</a></h4>
-                                    <p class="description">{{ Str::limit($item->description, 300) }}</p>
+                                    <p class="description">{{ Str::limit($item->description,200) }}</p>
                                 </div>
                             </div>
 
@@ -102,16 +102,16 @@
                     <div class="row">
                         @foreach ($serviceItem as $item)
                             <div class="col-lg-4 col-md-6">
-                                
-                                   
-                                    <h4 class="title">Please Data Entry</h4>
-                                    
-                                </div>
-                            </div>
 
-                        @endforeach
+
+                                <h4 class="title">Please Data Entry</h4>
+
+                            </div>
                     </div>
-                @endif
+
+                @endforeach
+            </div>
+            @endif
             </div>
         </section><!-- End Services Section -->
 
@@ -132,123 +132,24 @@
 
                 <div class="row portfolio-container" data-aos="fade-up">
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="{{ asset('assets/front/img/portfolio/1615392340.png') }}" class="img-fluid"
-                            alt="">
-                        <div class="portfolio-info">
-                            <h4>Mobile App</h4>
-                            <p>App</p>
-                            <a href="{{ asset('assets/front/img/portfolio/1615392340.png') }}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i
-                                    class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
+                    @foreach ($portfolioItem as $item)
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->project_type }}">
+                            <img src="{{ asset('uploads/portfolio/' . $item->project_image) }}" class="img-fluid rounded"
+                                alt="">
+                            <div class="portfolio-info">
+                                <h4>{{ $item->project_titel }}</h4>
+                                <p>{{ $item->project_type }}</p>
+                                <a href="{{ asset('uploads/portfolio/' . $item->project_image) }}"
+                                    data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="{{ $item->project_link }}" class="details-link" title="More Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="{{ asset('assets/front/img/portfolio/dokansheba.PNG') }}" class="img-fluid"
-                            alt="">
-                        <div class="portfolio-info">
-                            <h4>Dokan Sheba</h4>
-                            <p>Web</p>
-                            <a href="{{ asset('assets/front/img/portfolio/dokansheba.PNG') }}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i
-                                    class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="{{ asset('assets/front/img/portfolio/1615392340.webp') }}" class="img-fluid"
-                            alt="">
-                        <div class="portfolio-info">
-                            <h4>IOS App</h4>
-                            <p>App</p>
-                            <a href="{{ asset('assets/img/portfolio/1615392340.webp') }}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="assets/front/img/portfolio/jhorna.png" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="assets/front/img/portfolio/jhorna.png" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="Card 2"><i
-                                class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div> --}}
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="{{ asset('assets/front/img/portfolio/jhorna.PNG') }}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Hotel Management System</h4>
-                            <p>Web</p>
-                            <a href="{{ asset('assets/front/img/portfolio/jhorna.PNG') }}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i
-                                    class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="{{ asset('assets/front/img/portfolio/helpdesk.PNG') }}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>SF Management System</h4>
-                            <p>App</p>
-                            <a href="{{ asset('assets/front/img/portfolio/helpdesk.PNG') }}"
-                                data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i
-                                    class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="assets/front/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <a href="assets/front/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="Card 1"><i
-                                class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div> --}}
-
-                    {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="assets/front/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="assets/front/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="Card 3"><i
-                                class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div> --}}
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <img src="{{ asset('assets/front/img/portfolio/school.PNG') }}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>School Management System</h4>
-                            <p>Web</p>
-                            <a href="{{ asset('assets/img/portfolio/school.PNG') }}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
 

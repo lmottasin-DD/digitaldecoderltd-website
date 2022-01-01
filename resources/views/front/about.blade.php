@@ -23,7 +23,7 @@
 
                 <div class="row no-gutters">
                         <div class="col-md-5">
-                            <img src="{{ asset('uploads/about/' . $aboutItem->image) }}" class="d-block w-100 "
+                            <img src="{{ asset('uploads/about/' . $aboutItem->image) }}" class="d-block w-100 rounded"
                                 alt="about sidebar Image">
                         </div>
                         <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">

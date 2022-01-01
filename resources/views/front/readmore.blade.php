@@ -25,7 +25,7 @@
 
                         <div class="entry-img">
                             <img src="{{ asset('uploads/slider/' . $readSlug->image) }}" alt="Slider image"
-                                class="d-block w-100">
+                                class="d-block w-100 rounded">
                         </div>
 
                         <h2 class="entry-title">
@@ -73,7 +73,7 @@
                         <div class="sidebar-item recent-posts">
 
                                 <img src="{{ asset('uploads/slider/' . $item->image) }}"  width="40px"
-                                height="40px" alt="post images">
+                                height="40px" alt="post images" class="rounded">
                                 <h4>{{$item->title}}</h4>
                                 <time datetime="2020-01-01">{{ $item->created_at->diffForHumans() }}</time>
                             </div>

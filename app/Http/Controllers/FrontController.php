@@ -10,6 +10,7 @@ use App\Models\AboutFeature;
 use App\Models\Admin\Slider;
 use Illuminate\Http\Request;
 use App\Models\Admin\Contact;
+use App\Models\Admin\Portfolio;
 use App\Models\Admin\CompanyInfo;
 use App\Models\Admin\Testimonial;
 
@@ -26,7 +27,9 @@ class FrontController extends Controller
 
         $serviceItem = Service::where('status', 1)->limit(6)->latest()->get();
 
-        return view('front.index', compact('sliderItem', 'quoteItem', 'serviceItem'));
+        $portfolioItem = Portfolio::where('project_status',1)->limit(6)->latest()->get();
+
+        return view('front.index', compact('sliderItem', 'quoteItem', 'serviceItem','portfolioItem'));
     }
 
     public function showRead($slug)
@@ -67,12 +70,17 @@ class FrontController extends Controller
 
     public function portfolio()
     {
-        return view('front.portfolio');
+        $portfolioItem = Portfolio::where('project_status',1)->latest()->get();
+        // return $portfolioItem;
+        // $portfolioWeb = Portfolio::where('project_type','web')->latest()->get();
+        // $portfolioApp = Portfolio::where('project_type','app')->latest()->get();
+        return view('front.portfolio',compact('portfolioItem'));
     }
 
     public function contact()
     {
         $company_info = CompanyInfo::where('status',1)->latest()->first();
+        // return $company_info;
         
         return view('front.contact',compact('company_info'));
     }

@@ -45,7 +45,7 @@ class ContactContorller extends Controller
         $Info_store->client_message = $request->input('client_message');
         $Info_store->save();
 
-         return route('contact');
+         return redirect()->back();
     }
 
     /**
