@@ -71,8 +71,8 @@
                     <li><a class="{{ Request::routeIs('testimonial') ? 'active' : '' }}"
                             href="{{ route('testimonial') }}">Testimonials</a></li>
                     {{-- <li><a href="pricing.html">Pricing</a></li> --}}
-                    <li><a class="{{ Request::routeIs('portfolio') ? 'active' : '' }}"
-                            href="{{ route('portfolio') }}">Portfolio</a></li>
+                    <li><a class="{{ Request::routeIs('front.portfolio') ? 'active' : '' }}"
+                            href="{{ route('front.portfolio') }}">Portfolio</a></li>
                     {{-- <li><a class="{{ Request::routeIs('blog') ? 'active' : '' }}"
                             href="{{ route('blog') }}">Blog</a></li> --}}
                     {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>

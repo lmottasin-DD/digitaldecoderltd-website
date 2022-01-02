@@ -109,9 +109,45 @@
                         <ul class="mm-show">
                             <li><a class="mm-active" href="{{ route('about.index') }}">Show all</a></li>
                             <li><a href="{{ route('about.create') }}">Create</a></li>
+                            <li><a href="{{ route('sub-about.create') }}">Sub about Create</a></li>
+                            <li><a href="{{ route('sub-about.index') }}">Sub about all</a></li>
 
                         </ul>
                     </li>
+
+
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Portfolio
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('portfolio.index') }}">Show all</a></li>
+                            <li><a href="{{ route('portfolio.create') }}">Create</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="mm-active">
+                        <a href="#">
+                            <i class="metismenu-icon pe-7s-rocket"></i>
+                            Footer
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                        <ul class="mm-show">
+                            <li><a class="mm-active" href="{{ route('footer.index') }}">Show footer details</a></li>
+                            <li><a href="{{ route('footer.edit',1) }}">Edit</a></li>
+                            <li><a href="{{ route('footer.load.page') }}">Add Useful links</a></li>
+                            <li><a href="{{ route('footer.show.all.useful') }}">Show all useful link</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+
+
                     <li>
                         <a href="#">
                             <i class="metismenu-icon pe-7s-browser"></i>

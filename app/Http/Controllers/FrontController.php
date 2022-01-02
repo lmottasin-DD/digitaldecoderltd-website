@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Cta;
 use App\Models\Front;
 use App\Models\Email;
+use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\SubAbout;
@@ -49,7 +50,11 @@ class FrontController extends Controller
     }
 
     public function portfolio(){
-        return view('front.portfolio');
+        $data = Portfolio::where('status',1)->get();
+
+        return view('front.portfolio',[
+            'all_data' => $data,
+        ]);
     }
 
     public function contact(){
@@ -72,6 +77,13 @@ class FrontController extends Controller
         $data['cta_data'] = Cta::where('status',1)->first();
 
         $data['service_data'] = Service::where('status',1)->get();
+
+        $data['portfolio_data'] = Portfolio::where('status',1)->get();
+
+
+
+
+
 //        return $data;
 
 //        return $cta_data[0];
@@ -92,4 +104,5 @@ class FrontController extends Controller
         ]);
         return redirect()->back()->with('success','Your message has been sent. Thank you!');
      }
+
 }

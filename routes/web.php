@@ -32,7 +32,7 @@ Route::post('get/contact/info','FrontController@getContactInfo')->name('contact.
 Route::get('front/about/', 'FrontController@about')->name('front.about');
 Route::get('services', 'FrontController@service')->name('service');
 Route::get('testimonials', 'FrontController@testimonial')->name('testimonial');
-Route::get('portfolio', 'FrontController@portfolio')->name('portfolio');
+Route::get('front/portfolio', 'FrontController@portfolio')->name('front.portfolio');
 Route::get('contactPage', 'FrontController@contact')->name('contact.page');
 Route::get('blog', 'FrontController@blog')->name('blog');
 // Route::get('about', 'FrontController@about')->name('about');
@@ -116,6 +116,22 @@ Route::group(['middleware'=>'auth'], function(){
    Route::get('sub-about/status-change/{id}','SubAboutController@statusChange')->name('sub-about.status.change');
 });
 
+/*portfolio page*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('portfolio','PortfolioController');
+   Route::get('portfolio/status-change/{id}','PortfolioController@statusChange')->name('portfolio.status.change');
+});
+
+
+/*Footer section*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('footer','FooterController');
+    Route::post('add_useful_links','FooterController@add_useful')->name('footer.add.useful_links');
+    Route::get('footers/addUsefulLinks','FooterController@load_page')->name('footer.load.page');
+    Route::get( 'footers/show-useful-link','FooterController@showAllUseful')->name('footer.show.all.useful');
+    //Route::post('add/useful/service/link','FooterController@add_useful_service')->name('footer.useful.service.add');
+    //Route::get('portfolio/status-change/{id}','PortfolioController@statusChange')->name('portfolio.status.change');
+});
 
 
 
