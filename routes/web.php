@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin\DashboardController;
 
 //Home Pages Route Here...........
 
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'index'])->name('user.dashboard');
 
 Route::get('/read-more/{slug}', [FrontController::class, 'showRead'])->name('read.more');
 
@@ -56,9 +56,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('dashboard', [DashboardController::class, 'admin_dashboard']);
+    Route::get('dashboard', [DashboardController::class, 'admin_dashboard'])->name('admin.dashboard');
 
     //Slider Route Here.....
 

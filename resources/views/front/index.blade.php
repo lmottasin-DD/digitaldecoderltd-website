@@ -15,7 +15,7 @@
                         @php
                             $i++;
                         @endphp
-                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="d-block w-100 rounded" alt="Slider Image">
+                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="w-100 rounded" alt="Slider Image">
                         {{-- style="background-image: url({{ asset('uploads/slider/'.$item->image) }});"> --}}
                         <div class="carousel-container">
                             <div class="carousel-content animate__animated animate__fadeInUp rounded">
