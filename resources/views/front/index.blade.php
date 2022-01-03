@@ -15,12 +15,12 @@
                         @php
                             $i++;
                         @endphp
-                        <img src="{{ asset('uploads/slider/' . $item->image) }}" class="w-100 rounded" alt="Slider Image">
+                        <img src="{{ asset('uploads/slider/' . $item->image) }}" style="height: 600px;" class="w-100 rounded" alt="Slider Image">
                         {{-- style="background-image: url({{ asset('uploads/slider/'.$item->image) }});"> --}}
                         <div class="carousel-container">
                             <div class="carousel-content animate__animated animate__fadeInUp rounded">
-                                <h2>{{ $item->title }}</h2>
-                                <p>{{ Str::limit($item->description, 200) }}</p>
+                                <h2 class="text-justify">{{ $item->title }}</h2>
+                                <p class="text-justify">{{ Str::limit($item->description, 300) }}</p>
                                 <div class="text-center"><a href="{{ route('read.more', $item->slug) }}"
                                         class="btn-get-started">Read More</a></div>
                             </div>
@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-lg-9 text-center text-lg-left">
                             <h3>{{ $quoteItem->title }}</h3>
-                            <p> {{ Str::limit($quoteItem->description, 200) }}
+                            <p> {{ Str::limit($quoteItem->description, 300) }}
                             </p>
                         </div>
                         <div class="col-lg-3 cta-btn-container text-center">
@@ -88,8 +88,8 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="icon-box" data-aos="fade-up">
                                     <div class="icon"><i class="{{ $item->icon }}"></i></div>
-                                    <h4 class="title"><a href="">{{ $item->title }}</a></h4>
-                                    <p class="description">{{ Str::limit($item->description,200) }}</p>
+                                    <h4 class="title"><a href="dokansheba.com">{{ $item->title }}</a></h4>
+                                    <p class="text-justify">{{ Str::limit($item->description, 300) }}</p>
                                 </div>
                             </div>
 
@@ -136,7 +136,7 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->project_type }}">
                             <img src="{{ asset('uploads/portfolio/' . $item->project_image) }}" class="img-fluid rounded"
-                                alt="">
+                                width="500" height="600" alt="">
                             <div class="portfolio-info">
                                 <h4>{{ $item->project_titel }}</h4>
                                 <p>{{ $item->project_type }}</p>
@@ -169,54 +169,16 @@
 
                 <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-1.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
+                    @foreach ($ourclientItem as $item)
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-2.png" class="img-fluid" alt="">
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="client-logo">
+                                <img src="{{ asset('uploads/client/' . $item->image) }}" class="img-fluid"
+                                    alt="Portfolio_image">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-3.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-4.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-5.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-6.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-7.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="assets/front/img/clients/client-8.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>

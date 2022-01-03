@@ -24,13 +24,13 @@
                 <div class="row no-gutters">
                         <div class="col-md-5">
                             <img src="{{ asset('uploads/about/' . $aboutItem->image) }}" class="d-block w-100 rounded"
-                                alt="about sidebar Image">
+                                alt="about sidebar Image" width="500" height="400">
                         </div>
                         <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                             <div class="content d-flex flex-column justify-content-center">
                                 <h3 data-aos="fade-up">{{ $aboutItem->title }}</h3>
                                 <p data-aos="fade-up">
-                                    {{ Str::limit($aboutItem->description, 250) }}
+                                    {{ Str::limit($aboutItem->description, 350) }}
                                 </p>
                                 <div class="row">
 
@@ -41,7 +41,7 @@
                                                 <i class="{{ $item->icon }}"></i>
                                             </div>
                                             <h4>{{ $item->title }}</h4>
-                                            <p>{{ Str::limit($item->description, 50) }}
+                                            <p>{{ Str::limit($item->description, 200) }}
                                             </p>
                                         </div>
                                     @endforeach

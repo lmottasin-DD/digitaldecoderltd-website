@@ -28,7 +28,7 @@
                         <div class="icon-box" data-aos="fade-up">
                             <div class="icon"><i class="{{$item->icon}}"></i></div>
                             <h4 class="title"><a href="">{{$item->title}}</a></h4>
-                            <p class="description">{{Str::limit($item->description,100)}}</p>
+                            <p class="description">{{Str::limit($item->description,300)}}</p>
                         </div>
                     </div>
                     @endforeach
@@ -42,8 +42,8 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2><strong>{{$serviceFeature->title}}</strong></h2>
-                    <p><span>{{$serviceFeature->description}}</span></p>
+                  <h2><strong>{{Str::limit($serviceFeature->tilte,150)}}</strong></h2>
+                  <p class="text-justify"><span>{{Str::limit($serviceFeature->description,300)}}</span></p>
                 </div>
 
                 {{-- <div class="row">

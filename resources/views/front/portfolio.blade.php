@@ -38,8 +38,6 @@
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->project_type }}">
                             <img src="{{ asset('uploads/portfolio/' . $item->project_image) }}" class="img-fluid rounded"
                                 alt="Portfolio_image">
-                            {{-- <img src="{{ asset('assets/front/img/portfolio/1615392340.png') }}" class="img-fluid"
-                                alt=""> --}}
                             <div class="portfolio-info">
                                 <h4>{{$item->project_titel}}</h4>
                                 <p>{{$item->project_type}}</p>

@@ -28,13 +28,12 @@
             
           <div class="col-lg-6" data-aos="fade-up">
             <div class="testimonial-item">
-              <img src="{{ asset('uploads/testimonial/' . $item->image) }}" class="d-block w-50 rounded" alt="Slider Image">
-              {{-- <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> --}}
+              {{-- <img src="{{ asset('uploads/testimonial/' . $item->image) }}" class="d-block w-50 rounded" alt="Slider Image"> --}}
               <h3>{{$item->name}}</h3>
               <h4>{{$item->designation}}</h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                {{Str::limit($item->title,30)}}
+                {{Str::limit($item->title,100)}}
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>

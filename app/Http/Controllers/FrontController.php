@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Contact;
 use App\Models\Admin\Portfolio;
 use App\Models\Admin\CompanyInfo;
+use App\Models\Admin\Ourclient;
+use App\Models\Admin\Servicefeature;
 use App\Models\Admin\Testimonial;
 
 class FrontController extends Controller
@@ -29,7 +31,9 @@ class FrontController extends Controller
 
         $portfolioItem = Portfolio::where('project_status',1)->limit(6)->latest()->get();
 
-        return view('front.index', compact('sliderItem', 'quoteItem', 'serviceItem','portfolioItem'));
+        $ourclientItem = Ourclient::where('status',1)->limit(8)->latest()->get();
+
+        return view('front.index', compact('sliderItem', 'quoteItem', 'serviceItem','portfolioItem','ourclientItem'));
     }
 
     public function showRead($slug)
@@ -56,7 +60,7 @@ class FrontController extends Controller
     public function service()
     {
         $serviceItem = Service::where('status', 1)->limit(6)->latest()->get();
-        $serviceFeature = AboutFeature::where('status',1)->first();
+        $serviceFeature = Servicefeature::where('status',1)->first();
 
         return view('front.service',compact('serviceItem','serviceFeature'));
     }

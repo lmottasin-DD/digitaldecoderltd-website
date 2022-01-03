@@ -81,9 +81,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('quote', 'Admin\QuoteController');
 
-    //Quote Route Here......
+    //Service Route Here......
 
     Route::resource('service', 'Admin\ServiceController');
+
+    //Servicefeature Route Here......
+
+    Route::resource('servicefeature', 'Admin\ServicefeatureController');
+
+    //OurClient Route Here......
+
+    Route::resource('ourclient', 'Admin\OurclientController');
 
     //About Route Here.....
 
