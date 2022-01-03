@@ -13,6 +13,7 @@ use App\Models\Slider;
 use App\Models\SubAbout;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+
 use function PHPUnit\Framework\returnArgument;
 
 class FrontController extends Controller
@@ -72,6 +73,7 @@ class FrontController extends Controller
     }
     public function index()
     {
+
         $data['all_data'] = Slider::where('status','=',1)->get();
 
         $data['cta_data'] = Cta::where('status',1)->first();

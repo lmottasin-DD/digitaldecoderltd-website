@@ -113,13 +113,15 @@
 
                     <div class="col-lg-3 col-md-6 footer-contact">
                         {{-- <h3>Digital Decoder</h3> --}}
-                        <a href="{{ url('/') }}"><img src="{{ asset('assets/front/img/logo.jfif') }}" alt="Digitla Decoder" style="height: 10%;" class="img-fluid"></a>
+                        {{--fetch the deatils of footer--}}
+                        @php
+                        $footer_details = load_footer();
+                        @endphp
+                        <a href="{{ url('/') }}"><img src="{{ asset('media/footer_image/'.$footer_details->logo) }}" alt="Digitla Decoder" style="height: 10%;" class="img-fluid"></a>
                         <p>
-                            E-9/6<br>
-                            East Tower<br>
-                            Chaina Town<br><br>
-                            <strong>Phone:</strong> +9613661122<br>
-                            <strong>Email:</strong> info@digitaldecoderltd.com<br>
+                            <strong>Address:</strong> {{ $footer_details->address }}<br>
+                            <strong>Phone:</strong> {{ $footer_details->phone }}<br>
+                            <strong>Email:</strong> {{ $footer_details-> email }}<br>
                         </p>
                     </div>
 
