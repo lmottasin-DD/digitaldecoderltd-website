@@ -18,4 +18,6 @@
     </div>
 </body>
 
+</div>
+
 @include('backend.partials.footer')
