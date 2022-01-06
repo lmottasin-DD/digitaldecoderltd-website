@@ -1043,6 +1043,8 @@
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->description }}</td>
                                             <td>
+												<form action="{{ route('quote.destroy', $item->id) }}" method="POST">
+
                                                 <a href="{{ route('quote.show' , $item->id) }}">
                                                     <button class="tooltip-info" data-rel="tooltip" title="View">
                                                         <span class="blue">
@@ -1057,11 +1059,9 @@
                                                         </span>
                                                     </button>
                                                 </a>
-												<br/>
-												<form action="{{ route('quote.destroy', $item->id) }}" method="POST">
 													@method('delete')
 													@csrf
-													<button class="tooltip-danger"  title="Delete"
+													<button type="submit"
                                                         onclick="return confirm('Are You Sure To Deleted !')">
                                                         <span class="red">
                                                             <i class="fas fa-trash-alt"></i>

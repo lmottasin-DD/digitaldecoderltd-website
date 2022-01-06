@@ -82,6 +82,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                <form action="{{ route('aboutfeature.destroy', $item->id) }}" method="POST">
                                                 <a href="{{ route('aboutfeature.show', $item->id) }}">
                                                     <button class="tooltip-info" data-rel="tooltip" title="View">
                                                         <span class="blue">
@@ -97,10 +98,10 @@
                                                     </button>
                                                 </a>
                                                 <br />
-                                                <form action="{{ route('aboutfeature.destroy', $item->id) }}" method="POST">
+                                               
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button class="tooltip-danger" title="Delete"
+                                                    <button type="submit"
                                                         onclick="return confirm('Are You Sure To Deleted !')">
                                                         <span class="red">
                                                             <i class="fas fa-trash-alt"></i>
