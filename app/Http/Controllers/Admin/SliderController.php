@@ -24,9 +24,10 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'title'         => 'required|max:20',
-            'description'   => 'required|min:100',
-            'slug'          =>'required|same:title',
+            'title'         => 'required',
+            'description'   => 'required',
+            'slug'          =>'required',
+            'image'         => 'image'
         ];
 
         $this->validate($request,$rules);

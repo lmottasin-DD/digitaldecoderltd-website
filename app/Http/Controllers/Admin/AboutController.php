@@ -42,7 +42,6 @@ class AboutController extends Controller
             'title'         => 'required',
             'description'   => 'required',
             'image'          => 'required',
-            'status'        => 'required'
         ];
         $this->validate($request, $rules);
 

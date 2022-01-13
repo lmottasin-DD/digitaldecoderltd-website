@@ -42,7 +42,11 @@ class TestimonialController extends Controller
     {
         $rules = [
             'name'          => 'required',
-            'title'         => 'required'
+            'title'         => 'required',
+            'designation'          => 'required',
+            'email'         => 'required',
+            'phone'          => 'required',
+            'image'         => 'required'
         ];
 
         $this->validate($request,$rules);

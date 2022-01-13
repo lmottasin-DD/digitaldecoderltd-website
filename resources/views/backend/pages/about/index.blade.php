@@ -1054,7 +1054,7 @@
                                                 @endif
                                             </td>
                                             <td>
-												<form action="{{ route('about.destroy', $item->id) }}" method="POST">
+												
                                                 <a href="{{ route('about.show' , $item->id) }}">
                                                     <button class="tooltip-info" data-rel="tooltip" title="View">
                                                         <span class="blue">
@@ -1070,6 +1070,7 @@
                                                     </button>
                                                 </a>
 												<br/>
+												<form action="{{ route('about.destroy', $item->id) }}" method="POST">
 													@method('delete')
 													@csrf
 													<button type="submit"

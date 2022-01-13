@@ -1043,8 +1043,6 @@
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->description }}</td>
                                             <td>
-												<form action="{{ route('quote.destroy', $item->id) }}" method="POST">
-
                                                 <a href="{{ route('quote.show' , $item->id) }}">
                                                     <button class="tooltip-info" data-rel="tooltip" title="View">
                                                         <span class="blue">
@@ -1059,6 +1057,7 @@
                                                         </span>
                                                     </button>
                                                 </a>
+												<form action="{{ route('quote.destroy', $item->id) }}" method="POST">
 													@method('delete')
 													@csrf
 													<button type="submit"

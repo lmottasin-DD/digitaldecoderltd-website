@@ -25,16 +25,16 @@
             </div>
             <br>
             <div class="container mt-5">
-				@if(Session::has('status'))
-				<div>
-					<p class="alert alert-info">{{ Session::get('status') }}
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true" style="font-size:20px">×</span>
-						</button>
-					</p>
-				</div>
+                @if (Session::has('status'))
+                    <div>
+                        <p class="alert alert-info">{{ Session::get('status') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" style="font-size:20px">×</span>
+                            </button>
+                        </p>
+                    </div>
 
-			@endif
+                @endif
                 @if (Session::has('destory'))
                     <div>
                         <p class="alert alert-danger">{{ Session::get('destory') }}
@@ -77,8 +77,8 @@
                                             </td>
                                             <td>
                                                 @if ($item->status == '1')
-                                                    Active  
-													
+                                                    Active
+
                                                 @else
                                                     Deactive
                                                 @endif
