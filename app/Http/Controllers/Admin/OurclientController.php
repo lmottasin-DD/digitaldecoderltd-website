@@ -41,8 +41,7 @@ class OurclientController extends Controller
         
         $rules = [
             'title'         => 'required',
-            'image'   => 'required',
-            'status'   => 'required',
+            'image'         => 'required',
             
         ];
 

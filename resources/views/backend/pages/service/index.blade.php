@@ -112,6 +112,7 @@
                                 </tbody>
 
                             </table>
+
                         </div>
                     </div>
                 </div>
@@ -120,7 +121,8 @@
                     <span class="pull-right">
                         <ul class="pagination">
                             <li class=" @if ($services->appends(request()->query())->currentPage() == 1) disabled @endif">
-                                <a class="" href=" {{ $services->appends(request()->query())->url(1) }}">←
+                                <a class=""
+                                    href=" {{ $services->appends(request()->query())->url(1) }}">←
                                     First</a>
                             </li>
 

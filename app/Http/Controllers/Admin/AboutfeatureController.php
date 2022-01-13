@@ -42,7 +42,6 @@ class AboutfeatureController extends Controller
             'title' => 'required',
             'description' => 'required',
             'icon' => 'required',
-            'status' => 'required'
         ];
         $this->validate($request, $rules);
         $aboutFeature = new AboutFeature();

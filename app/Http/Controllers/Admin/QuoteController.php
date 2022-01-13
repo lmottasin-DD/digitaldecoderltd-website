@@ -39,8 +39,8 @@ class QuoteController extends Controller
     public function store(Request $request)
     {
         $rules =[
-            'title' => 'required|max:20',
-            'description' =>'required|min:100'
+            'title' => 'required',
+            'description' =>'required'
         ];
         $this->validate($request,$rules);
 

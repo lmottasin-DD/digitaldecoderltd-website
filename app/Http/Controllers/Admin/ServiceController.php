@@ -41,8 +41,7 @@ class ServiceController extends Controller
         $rules = [
             'title'         => 'required',
             'description'   => 'required',
-            'icon'          => 'required',
-            'status'        => 'required'
+            'icon'          => 'required'
         ];
         $this->validate($request,$rules);
 

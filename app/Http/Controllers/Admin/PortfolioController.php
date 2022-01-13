@@ -96,13 +96,12 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $rules = [
-        //     'project_titel' => 'required',
-        //     'project_type' => 'required',
-        //     'project_link' => 'required',
-        //     'project_image' => 'required',
-        // ];
-        // $this->validate($request,$rules);
+         $rules = [
+            'project_titel' => 'required',
+            'project_type' => 'required',
+            'project_image' => 'required',
+         ];
+         $this->validate($request,$rules);
         
         $portfolio_store = Portfolio::findOrFail($id);
         $portfolio_store->project_titel = $request->input('project_titel');

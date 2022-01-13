@@ -42,7 +42,6 @@ class ServicefeatureController extends Controller
         $roles = [
             'tilte' => 'required',
             'description' => 'required',
-            'status' => 'required',
         ];
 
         $feature_store = new Servicefeature();

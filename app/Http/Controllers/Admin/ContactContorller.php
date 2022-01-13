@@ -38,6 +38,14 @@ class ContactContorller extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'client_name' => 'required',
+            'client_email' => 'required',
+            'client_subject' => 'required',
+            'client_message' => 'required',
+        ];
+        $this->validate($request,$rules);
+
         $Info_store = new Contact();
         $Info_store->client_name = $request->input('client_name');
         $Info_store->client_email = $request->input('client_email');

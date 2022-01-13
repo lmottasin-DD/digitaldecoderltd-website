@@ -39,7 +39,7 @@ class CompanyinfoController extends Controller
     {
         $rules = [
             'company_location' => 'required',
-            'company_email' => 'required|email',
+            'company_email' => 'required',
             'company_call' => 'required',
         ];
         $this->validate($request,$rules);
