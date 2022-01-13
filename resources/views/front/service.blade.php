@@ -1,85 +1,52 @@
 @extends('front.layouts.app')
 @section('title', 'DIGITAL | DECODER')
 @section('contents')
-<main id="main">
+    <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Services</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Services</li>
-          </ol>
-        </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Services</h2>
+                    <ol>
+                        <li><a href="{{url('/')}}">Home</a></li>
+                        <li>Services</li>
+                    </ol>
+                </div>
 
-      </div>
-    </section><!-- End Breadcrumbs -->
+            </div>
+        </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up">
-                  <div class="icon"><i class="bi bi-exclude"></i></div>
-                  <h4 class="title"><a href="">All in One Solution</a></h4>
-                  <p class="description">Eliminate stress with one complete, strong solution. Total system from just one unique system.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                  <h4 class="title"><a href="">Independent Platform</a></h4>
-                  <p class="description">With software that can run independently on any platform, real-time activity monitoring becomes easy.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <div class="icon"><i class="bi bi-bar-chart"></i></div>
-                  <h4 class="title"><a href="">Data Consolidation</a></h4>
-                  <p class="description"> Gather vast amounts of data in one central place. Stress-free, hassle-free, easy; the perfect solution to human cost management.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <div class="icon"><i class="bi bi-binoculars"></i></div>
-                  <h4 class="title"><a href="">Web Applicaiton</a></h4>
-                  <p class="description">Our custom tailored web applications and e-Commerce fits with client business needs and increase operational efficiency</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <div class="icon"><i class="bi bi-phone-fill"></i></div>
-                  <h4 class="title"><a href="">Moblie Applicaiotn</a></h4>
-                  <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                  <div class="icon"><i class="bi bi-apple"></i></div>
-                  <h4 class="title"><a href="">IOS Application</a></h4>
-                  <p class="description">We Don't Make Good Apps We Make Apps That Leave Influence.</p>
-              </div>
-          </div>
-      </div>
+                <div class="row text-justify">
+                  @foreach ($serviceItem as $item)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box" data-aos="fade-up">
+                            <div class="icon"><i class="{{$item->icon}}"></i></div>
+                            <h4 class="title"><a href="">{{$item->title}}</a></h4>
+                            <p class="description">{{Str::limit($item->description,300)}}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
 
-      </div>
-    </section><!-- End Services Section -->
+            </div>
+        </section><!-- End Services Section -->
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
+        <!-- ======= Features Section ======= -->
+        <section id="features" class="features">
+            <div class="container">
 
-        <div class="section-title" data-aos="fade-up">
-          <h2>Some <strong>Features</strong> we do provide</h2>
-          <p>Our software supports integrating with various modules of ERP like human resource, finance, sales, and supply chain management to manage your business in a better way. It is customized according to the needs of your enterprise.</p>
-        </div>
+                <div class="section-title" data-aos="fade-up">
+                  <h2><strong>{{Str::limit($serviceFeature->tilte,150)}}</strong></h2>
+                  <p class="text-justify"><span>{{Str::limit($serviceFeature->description,300)}}</span></p>
+                </div>
 
-        {{-- <div class="row">
+                {{-- <div class="row">
           <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
@@ -134,9 +101,9 @@
           </div>
         </div> --}}
 
-      </div>
-    </section><!-- End Features Section -->
+            </div>
+        </section><!-- End Features Section -->
 
-  </main><!-- End #main -->
+    </main><!-- End #main -->
 
 @endsection

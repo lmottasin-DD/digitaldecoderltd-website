@@ -65,7 +65,7 @@
                     <li><a class="{{ request()->segment(1) == '' ? 'active' : '' }}"
                             href="{{ url('/') }}">Home</a></li>
                     <li><a class="{{ Request::routeIs('about') ? 'active' : '' }}"
-                            href="{{ route('about') }}">About</a></li>
+                            href="{{ route('abouts') }}">About</a></li>
                     <li><a class="{{ Request::routeIs('service') ? 'active' : '' }}"
                             href="{{ route('service') }}">Services</a></li>
                     <li><a class="{{ Request::routeIs('testimonial') ? 'active' : '' }}"
@@ -126,11 +126,11 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{url('/')}}">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{route('abouts')}}">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{route('service')}}">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="">Privacy policy</a></li>
                         </ul>
                     </div>
 
@@ -185,7 +185,7 @@
     <script src="{{ asset('assets/front/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/front/vendor/waypoints/noframework.waypoints.js') }}"></script>
     <script src="{{ asset('assets/front/vendor/php-email-form/validate.js') }}"></script>
-
+    
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
 
